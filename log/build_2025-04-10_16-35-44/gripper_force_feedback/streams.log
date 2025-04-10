@@ -1,0 +1,21 @@
+[0.031s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[0.120s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[0.142s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+[0.155s] -- Install configuration: ""
+[0.156s] -- Execute custom install script
+[0.156s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/package_run_dependencies/gripper_force_feedback
+[0.157s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/parent_prefix_path/gripper_force_feedback
+[0.157s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.sh
+[0.157s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.dsv
+[0.158s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.sh
+[0.158s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.dsv
+[0.159s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.bash
+[0.159s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.sh
+[0.160s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.zsh
+[0.160s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.dsv
+[0.160s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.dsv
+[0.184s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/packages/gripper_force_feedback
+[0.184s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig.cmake
+[0.185s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig-version.cmake
+[0.186s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.xml
+[0.192s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
