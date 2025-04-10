@@ -1,0 +1,1 @@
+/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/ament_cmake_environment_hooks/local_setup.bash
