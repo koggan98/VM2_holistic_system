@@ -192,10 +192,10 @@ class HandPositionPublisher(Node):
                             hand_position.position.x = float(point_in_world[0]) # Hier roboterpunkte
                             hand_position.position.y = float(point_in_world[1])
                             hand_position.position.z = float(point_in_world[2])
-                            hand_position.orientation.x = -0.891 # für approach von oben 1,0,0,0
-                            hand_position.orientation.y = 0.0
-                            hand_position.orientation.z = 0.0
-                            hand_position.orientation.w = 0.454
+                            hand_position.orientation.x = -0.63
+                            hand_position.orientation.y = 0.63
+                            hand_position.orientation.z = -0.321
+                            hand_position.orientation.w = 0.321
                             self.publisher_.publish(hand_position)
 
                             self.get_logger().info(f"Handposition veröffentlicht (Roboterframe): x={point_in_world[0]}, y={point_in_world[1]}, z={point_in_world[2]}")

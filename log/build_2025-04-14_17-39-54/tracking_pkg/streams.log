@@ -1,0 +1,33 @@
+[0.188s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8
+[0.561s] [35m[1mConsolidate compiler generated dependencies of target moveit_mover[0m
+[0.704s] [100%] Built target moveit_mover
+[1.062s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8
+[1.073s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
+[1.140s] -- Install configuration: ""
+[1.140s] -- Execute custom install script
+[1.144s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/hand_tracker.py
+[1.145s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/camera_publisher.py
+[1.145s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/frame_publisher.py
+[1.147s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/gesture_pose_publisher.py
+[1.150s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/box_publisher.py
+[1.152s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/socket_mover.py
+[1.153s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/gripper_mover.py
+[1.153s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/launch/moveit_launch.py
+[1.153s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/launch/web_socket_launch.py
+[1.163s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/moveit_mover
+[1.163s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/package_run_dependencies/tracking_pkg
+[1.165s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/parent_prefix_path/tracking_pkg
+[1.168s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/ament_prefix_path.sh
+[1.171s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/ament_prefix_path.dsv
+[1.174s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/path.sh
+[1.176s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/path.dsv
+[1.180s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.bash
+[1.183s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.sh
+[1.187s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.zsh
+[1.189s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.dsv
+[1.191s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.dsv
+[1.217s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/packages/tracking_pkg
+[1.219s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/cmake/tracking_pkgConfig.cmake
+[1.219s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/cmake/tracking_pkgConfig-version.cmake
+[1.220s] -- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.xml
+[1.238s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
