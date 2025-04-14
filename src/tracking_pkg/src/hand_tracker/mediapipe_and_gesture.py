@@ -33,14 +33,14 @@ class HandGestureTracker:
         self.transition_times = []  # Zeiten, zu denen Zustandsänderungen erkannt wurden
 
     def is_hand_open(self, hand_landmarks, mp_hands):
-        """Überprüft, ob die Hand offen ist."""
+        """Überprüft, ob die Hand offen ist anhand des x wertes der fingerspitzen zur fingerbasis (waagerechte im bild)."""
         fingers_open = []
         for finger in [mp_hands.HandLandmark.THUMB_TIP, mp_hands.HandLandmark.INDEX_FINGER_TIP,
                        mp_hands.HandLandmark.MIDDLE_FINGER_TIP, mp_hands.HandLandmark.RING_FINGER_TIP,
                        mp_hands.HandLandmark.PINKY_TIP]:
             fingertip = hand_landmarks.landmark[finger]
             finger_base = hand_landmarks.landmark[finger - 2]
-            fingers_open.append(fingertip.y < finger_base.y)
+            fingers_open.append(fingertip.x < finger_base.x)
         return sum(fingers_open) >= 4
 
     def detect_double_open_close(self, hand_landmarks, mp_hands):
