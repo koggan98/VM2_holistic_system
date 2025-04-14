@@ -79,6 +79,30 @@ private:
         target_pose.position.z = z_pos + 0.15;
         target_pose.orientation = msg->orientation;
 
+        
+        // constraints definieren
+        moveit_msgs::msg::Constraints constraints;
+        // Elbow up constraints hinzufügen (elbow joint muss positiv sein)
+        moveit_msgs::msg::JointConstraint elbow_constraint;
+        elbow_constraint.joint_name = "elbow_joint"; //
+        elbow_constraint.position = 1;              // Zielposition (ca. 57°)
+        elbow_constraint.tolerance_above = 2.0;       // darf bis 3 rad also ca. 170° nach oben gehen
+        elbow_constraint.tolerance_below = 1;       // erlaubt nur positive Winkel > 0
+        elbow_constraint.weight = 1.0;
+        constraints.joint_constraints.push_back(elbow_constraint);
+
+        // Shoulder/base constraint zwischen -45° und 100°
+        moveit_msgs::msg::JointConstraint shoulder_constraint;
+        shoulder_constraint.joint_name = "shoulder_pan_joint"; // ggf. anpassen
+        shoulder_constraint.position = 0.5;                    // Mittelwert ≈ 29°
+        shoulder_constraint.tolerance_above = 1.2;             // +1.2 rad ≈ +100°
+        shoulder_constraint.tolerance_below = 0.785;           // -0.785 rad ≈ -45°
+        shoulder_constraint.weight = 1.0;
+        constraints.joint_constraints.push_back(shoulder_constraint);
+        
+        // Constraint setzen
+        move_group_->setPathConstraints(constraints);
+
         // Zielpose setzen
         move_group_->setPoseTarget(target_pose);
 

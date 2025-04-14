@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(gripper_feel)
+project(gripper_force_feedback)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -17,9 +17,9 @@ find_package(moveit_ros_planning_interface REQUIRED)
 
 install(
   PROGRAMS
-  src/force_logger.py 
-  src/live_plotter.py
-  src/gripper_opener.py
+  #src/force_logger.py 
+  #src/live_plotter.py
+  #src/gripper_opener.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -31,15 +31,15 @@ install(
 
 
 # Ziele definieren
-add_executable(moveit_mover src/moveit_mover.cpp)
+#add_executable(moveit_mover src/moveit_mover.cpp)
 
 # Abhängigkeiten mit dem Ziel verknüpfen
-ament_target_dependencies(moveit_mover rclcpp geometry_msgs moveit_ros_planning_interface)
+#ament_target_dependencies(moveit_mover rclcpp geometry_msgs moveit_ros_planning_interface)
 
 # Installation des ausführbaren Ziels
-install(TARGETS moveit_mover
-  DESTINATION lib/${PROJECT_NAME}
-)
+#install(TARGETS moveit_mover
+#  DESTINATION lib/${PROJECT_NAME}
+#)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

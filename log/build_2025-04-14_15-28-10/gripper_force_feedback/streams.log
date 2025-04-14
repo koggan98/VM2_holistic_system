@@ -1,0 +1,73 @@
+[0.070s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback
+[0.488s] -- The C compiler identification is GNU 11.4.0
+[0.983s] -- The CXX compiler identification is GNU 11.4.0
+[1.079s] -- Detecting C compiler ABI info
+[1.559s] -- Detecting C compiler ABI info - done
+[1.628s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.629s] -- Detecting C compile features
+[1.631s] -- Detecting C compile features - done
+[1.650s] -- Detecting CXX compiler ABI info
+[2.222s] -- Detecting CXX compiler ABI info - done
+[2.268s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.270s] -- Detecting CXX compile features
+[2.271s] -- Detecting CXX compile features - done
+[2.278s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.194s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.560s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.687s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[4.902s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.927s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.973s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[5.040s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.155s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.384s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[5.400s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[5.540s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[5.586s] -- Looking for pthread.h
+[6.032s] -- Looking for pthread.h - found
+[6.033s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[6.692s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[6.704s] -- Found Threads: TRUE  
+[7.073s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[7.162s] -- Found moveit_ros_planning_interface: 2.5.8 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[7.254s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[7.938s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[8.115s] -- Found parameter_traits: 0.4.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[8.175s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[8.192s] -- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[8.311s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[8.655s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[8.804s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[9.326s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[9.453s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[9.739s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[9.880s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[10.227s] -- Added test 'flake8' to check Python code syntax and style conventions
+[10.229s] -- Added test 'lint_cmake' to check CMake code style
+[10.231s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[10.236s] -- Added test 'xmllint' to check XML markup files
+[10.245s] -- Configuring done
+[10.267s] -- Generating done
+[10.284s] -- Build files have been written to: /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+[10.387s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback
+[10.406s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[10.630s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[10.641s] Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+[10.676s] -- Install configuration: ""
+[10.680s] -- Execute custom install script
+[10.682s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/package_run_dependencies/gripper_force_feedback
+[10.757s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/parent_prefix_path/gripper_force_feedback
+[10.811s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.sh
+[10.876s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.dsv
+[10.912s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.sh
+[10.943s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.dsv
+[10.970s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.bash
+[11.000s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.sh
+[11.028s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.zsh
+[11.057s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.dsv
+[11.083s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.dsv
+[11.116s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/packages/gripper_force_feedback
+[11.150s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig.cmake
+[11.205s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig-version.cmake
+[11.227s] -- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.xml
+[11.288s] Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback

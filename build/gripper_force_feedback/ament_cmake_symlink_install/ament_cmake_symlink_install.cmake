@@ -310,6 +310,12 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
+# install(PROGRAMS "DESTINATION" "lib/gripper_force_feedback")
+ament_cmake_symlink_install_programs("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" PROGRAMS "DESTINATION" "lib/gripper_force_feedback")
+
+# install(DIRECTORY "launch" "DESTINATION" "share/gripper_force_feedback")
+ament_cmake_symlink_install_directory("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" DIRECTORY "launch" "DESTINATION" "share/gripper_force_feedback")
+
 # install(FILES "/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/gripper_force_feedback" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" FILES "/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/gripper_force_feedback" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
