@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(PROGRAMS "DESTINATION" "lib/gripper_force_feedback")
-ament_cmake_symlink_install_programs("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" PROGRAMS "DESTINATION" "lib/gripper_force_feedback")
+# install(PROGRAMS "src/gripper_opener_with_zeroer.py" "DESTINATION" "lib/gripper_force_feedback")
+ament_cmake_symlink_install_programs("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" PROGRAMS "src/gripper_opener_with_zeroer.py" "DESTINATION" "lib/gripper_force_feedback")
 
 # install(DIRECTORY "launch" "DESTINATION" "share/gripper_force_feedback")
 ament_cmake_symlink_install_directory("/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback" DIRECTORY "launch" "DESTINATION" "share/gripper_force_feedback")

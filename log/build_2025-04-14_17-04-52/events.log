@@ -1,0 +1,745 @@
+[0.000000] (-) TimerEvent: {}
+[0.004427] (gripper_force_feedback) JobQueued: {'identifier': 'gripper_force_feedback', 'dependencies': OrderedDict()}
+[0.004626] (tracking_pkg) JobQueued: {'identifier': 'tracking_pkg', 'dependencies': OrderedDict()}
+[0.004712] (ur_simulation_gazebo) JobQueued: {'identifier': 'ur_simulation_gazebo', 'dependencies': OrderedDict()}
+[0.004787] (gripper_force_feedback) JobStarted: {'identifier': 'gripper_force_feedback'}
+[0.032772] (tracking_pkg) JobStarted: {'identifier': 'tracking_pkg'}
+[0.074775] (ur_simulation_gazebo) JobStarted: {'identifier': 'ur_simulation_gazebo'}
+[0.100234] (-) TimerEvent: {}
+[0.146694] (gripper_force_feedback) JobProgress: {'identifier': 'gripper_force_feedback', 'progress': 'cmake'}
+[0.151857] (gripper_force_feedback) JobProgress: {'identifier': 'gripper_force_feedback', 'progress': 'build'}
+[0.160214] (gripper_force_feedback) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback', '--', '-j8', '-l8'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[0.204055] (tracking_pkg) JobProgress: {'identifier': 'tracking_pkg', 'progress': 'cmake'}
+[0.204599] (-) TimerEvent: {}
+[0.220671] (tracking_pkg) JobProgress: {'identifier': 'tracking_pkg', 'progress': 'build'}
+[0.230844] (tracking_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg', '--', '-j8', '-l8'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[0.288667] (ur_simulation_gazebo) JobProgress: {'identifier': 'ur_simulation_gazebo', 'progress': 'cmake'}
+[0.296722] (ur_simulation_gazebo) JobProgress: {'identifier': 'ur_simulation_gazebo', 'progress': 'build'}
+[0.296975] (ur_simulation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo', '--', '-j8', '-l8'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[0.315953] (-) TimerEvent: {}
+[0.417250] (-) TimerEvent: {}
+[0.518888] (-) TimerEvent: {}
+[0.590684] (gripper_force_feedback) CommandEnded: {'returncode': 0}
+[0.598041] (gripper_force_feedback) JobProgress: {'identifier': 'gripper_force_feedback', 'progress': 'install'}
+[0.621547] (-) TimerEvent: {}
+[0.639532] (gripper_force_feedback) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[0.659886] (ur_simulation_gazebo) CommandEnded: {'returncode': 0}
+[0.662498] (tracking_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target moveit_mover\x1b[0m\n'}
+[0.677210] (ur_simulation_gazebo) JobProgress: {'identifier': 'ur_simulation_gazebo', 'progress': 'install'}
+[0.677402] (ur_simulation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[0.696825] (gripper_force_feedback) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.699383] (gripper_force_feedback) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.699869] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib/gripper_force_feedback/gripper_opener_with_zeroer.py\n'}
+[0.703130] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/package_run_dependencies/gripper_force_feedback\n'}
+[0.705941] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/parent_prefix_path/gripper_force_feedback\n'}
+[0.706304] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.sh\n'}
+[0.711547] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/ament_prefix_path.dsv\n'}
+[0.712397] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.sh\n'}
+[0.713516] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/environment/path.dsv\n'}
+[0.717575] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.bash\n'}
+[0.718463] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.sh\n'}
+[0.719140] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.zsh\n'}
+[0.720006] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.735032] (-) TimerEvent: {}
+[0.736021] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/local_setup.dsv\n'}
+[0.736891] (gripper_force_feedback) StdoutLine: {'line': b'-- Symlinking: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.dsv\n'}
+[0.740795] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.747550] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/config/ur_controllers.yaml\n'}
+[0.748416] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/launch/ur_sim_control.launch.py\n'}
+[0.748959] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/launch/ur_sim_moveit.launch.py\n'}
+[0.749575] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ament_index/resource_index/package_run_dependencies/ur_simulation_gazebo\n'}
+[0.756389] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ament_index/resource_index/parent_prefix_path/ur_simulation_gazebo\n'}
+[0.759712] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/environment/ament_prefix_path.sh\n'}
+[0.762469] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/environment/ament_prefix_path.dsv\n'}
+[0.768550] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/environment/path.sh\n'}
+[0.772687] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/environment/path.dsv\n'}
+[0.777650] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/local_setup.bash\n'}
+[0.778597] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/local_setup.sh\n'}
+[0.783119] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/local_setup.zsh\n'}
+[0.792296] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/local_setup.dsv\n'}
+[0.796321] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.dsv\n'}
+[0.820826] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/ament_index/resource_index/packages/gripper_force_feedback\n'}
+[0.821749] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig.cmake\n'}
+[0.828390] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/cmake/gripper_force_feedbackConfig-version.cmake\n'}
+[0.831287] (gripper_force_feedback) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.xml\n'}
+[0.835284] (-) TimerEvent: {}
+[0.847137] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ament_index/resource_index/packages/ur_simulation_gazebo\n'}
+[0.853299] (gripper_force_feedback) CommandEnded: {'returncode': 0}
+[0.860565] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/cmake/ur_simulation_gazeboConfig.cmake\n'}
+[0.861201] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/cmake/ur_simulation_gazeboConfig-version.cmake\n'}
+[0.861705] (ur_simulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.xml\n'}
+[0.862114] (tracking_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/moveit_mover.dir/src/moveit_mover/moveit_mover.cpp.o\x1b[0m\n'}
+[0.943238] (-) TimerEvent: {}
+[1.050781] (-) TimerEvent: {}
+[1.055754] (gripper_force_feedback) JobEnded: {'identifier': 'gripper_force_feedback', 'rc': 0}
+[1.081300] (ur_simulation_gazebo) CommandEnded: {'returncode': 0}
+[1.152514] (-) TimerEvent: {}
+[1.247702] (ur_simulation_gazebo) JobEnded: {'identifier': 'ur_simulation_gazebo', 'rc': 0}
+[1.252687] (-) TimerEvent: {}
+[1.356245] (-) TimerEvent: {}
+[1.459979] (-) TimerEvent: {}
+[1.560793] (-) TimerEvent: {}
+[1.661544] (-) TimerEvent: {}
+[1.765217] (-) TimerEvent: {}
+[1.866286] (-) TimerEvent: {}
+[1.971566] (-) TimerEvent: {}
+[2.075040] (-) TimerEvent: {}
+[2.178774] (-) TimerEvent: {}
+[2.280084] (-) TimerEvent: {}
+[2.381167] (-) TimerEvent: {}
+[2.482125] (-) TimerEvent: {}
+[2.583604] (-) TimerEvent: {}
+[2.685502] (-) TimerEvent: {}
+[2.787481] (-) TimerEvent: {}
+[2.888977] (-) TimerEvent: {}
+[2.989830] (-) TimerEvent: {}
+[3.090456] (-) TimerEvent: {}
+[3.191134] (-) TimerEvent: {}
+[3.292671] (-) TimerEvent: {}
+[3.393679] (-) TimerEvent: {}
+[3.494495] (-) TimerEvent: {}
+[3.595493] (-) TimerEvent: {}
+[3.696440] (-) TimerEvent: {}
+[3.798380] (-) TimerEvent: {}
+[3.900149] (-) TimerEvent: {}
+[4.002018] (-) TimerEvent: {}
+[4.103002] (-) TimerEvent: {}
+[4.205659] (-) TimerEvent: {}
+[4.307083] (-) TimerEvent: {}
+[4.410289] (-) TimerEvent: {}
+[4.512589] (-) TimerEvent: {}
+[4.616184] (-) TimerEvent: {}
+[4.718016] (-) TimerEvent: {}
+[4.818967] (-) TimerEvent: {}
+[4.920016] (-) TimerEvent: {}
+[5.021035] (-) TimerEvent: {}
+[5.123000] (-) TimerEvent: {}
+[5.224149] (-) TimerEvent: {}
+[5.325862] (-) TimerEvent: {}
+[5.427608] (-) TimerEvent: {}
+[5.528716] (-) TimerEvent: {}
+[5.630425] (-) TimerEvent: {}
+[5.733736] (-) TimerEvent: {}
+[5.837452] (-) TimerEvent: {}
+[5.938466] (-) TimerEvent: {}
+[6.039788] (-) TimerEvent: {}
+[6.143821] (-) TimerEvent: {}
+[6.246927] (-) TimerEvent: {}
+[6.347646] (-) TimerEvent: {}
+[6.448037] (-) TimerEvent: {}
+[6.548427] (-) TimerEvent: {}
+[6.649270] (-) TimerEvent: {}
+[6.750543] (-) TimerEvent: {}
+[6.851698] (-) TimerEvent: {}
+[6.952411] (-) TimerEvent: {}
+[7.052922] (-) TimerEvent: {}
+[7.153541] (-) TimerEvent: {}
+[7.254572] (-) TimerEvent: {}
+[7.355354] (-) TimerEvent: {}
+[7.457711] (-) TimerEvent: {}
+[7.559552] (-) TimerEvent: {}
+[7.660174] (-) TimerEvent: {}
+[7.760704] (-) TimerEvent: {}
+[7.861632] (-) TimerEvent: {}
+[7.962274] (-) TimerEvent: {}
+[8.063131] (-) TimerEvent: {}
+[8.164269] (-) TimerEvent: {}
+[8.268118] (-) TimerEvent: {}
+[8.372759] (-) TimerEvent: {}
+[8.473624] (-) TimerEvent: {}
+[8.574465] (-) TimerEvent: {}
+[8.676542] (-) TimerEvent: {}
+[8.777318] (-) TimerEvent: {}
+[8.878066] (-) TimerEvent: {}
+[8.978618] (-) TimerEvent: {}
+[9.079139] (-) TimerEvent: {}
+[9.180772] (-) TimerEvent: {}
+[9.284004] (-) TimerEvent: {}
+[9.384707] (-) TimerEvent: {}
+[9.485173] (-) TimerEvent: {}
+[9.587358] (-) TimerEvent: {}
+[9.688379] (-) TimerEvent: {}
+[9.791609] (-) TimerEvent: {}
+[9.895532] (-) TimerEvent: {}
+[9.996792] (-) TimerEvent: {}
+[10.097488] (-) TimerEvent: {}
+[10.198726] (-) TimerEvent: {}
+[10.299936] (-) TimerEvent: {}
+[10.400724] (-) TimerEvent: {}
+[10.501447] (-) TimerEvent: {}
+[10.601906] (-) TimerEvent: {}
+[10.702534] (-) TimerEvent: {}
+[10.803053] (-) TimerEvent: {}
+[10.903625] (-) TimerEvent: {}
+[11.005227] (-) TimerEvent: {}
+[11.107202] (-) TimerEvent: {}
+[11.209071] (-) TimerEvent: {}
+[11.309865] (-) TimerEvent: {}
+[11.410442] (-) TimerEvent: {}
+[11.511041] (-) TimerEvent: {}
+[11.612073] (-) TimerEvent: {}
+[11.714829] (-) TimerEvent: {}
+[11.815789] (-) TimerEvent: {}
+[11.917592] (-) TimerEvent: {}
+[12.018055] (-) TimerEvent: {}
+[12.118579] (-) TimerEvent: {}
+[12.219825] (-) TimerEvent: {}
+[12.320952] (-) TimerEvent: {}
+[12.421944] (-) TimerEvent: {}
+[12.523215] (-) TimerEvent: {}
+[12.624229] (-) TimerEvent: {}
+[12.725011] (-) TimerEvent: {}
+[12.825884] (-) TimerEvent: {}
+[12.926430] (-) TimerEvent: {}
+[13.027023] (-) TimerEvent: {}
+[13.128398] (-) TimerEvent: {}
+[13.229884] (-) TimerEvent: {}
+[13.330656] (-) TimerEvent: {}
+[13.431937] (-) TimerEvent: {}
+[13.532667] (-) TimerEvent: {}
+[13.633437] (-) TimerEvent: {}
+[13.734055] (-) TimerEvent: {}
+[13.834854] (-) TimerEvent: {}
+[13.937118] (-) TimerEvent: {}
+[14.037749] (-) TimerEvent: {}
+[14.138202] (-) TimerEvent: {}
+[14.238717] (-) TimerEvent: {}
+[14.339312] (-) TimerEvent: {}
+[14.440536] (-) TimerEvent: {}
+[14.545070] (-) TimerEvent: {}
+[14.646038] (-) TimerEvent: {}
+[14.746960] (-) TimerEvent: {}
+[14.848142] (-) TimerEvent: {}
+[14.949515] (-) TimerEvent: {}
+[15.051514] (-) TimerEvent: {}
+[15.152485] (-) TimerEvent: {}
+[15.253434] (-) TimerEvent: {}
+[15.357150] (-) TimerEvent: {}
+[15.461500] (-) TimerEvent: {}
+[15.564565] (-) TimerEvent: {}
+[15.666470] (-) TimerEvent: {}
+[15.774862] (-) TimerEvent: {}
+[15.875580] (-) TimerEvent: {}
+[15.976235] (-) TimerEvent: {}
+[16.076854] (-) TimerEvent: {}
+[16.178369] (-) TimerEvent: {}
+[16.279393] (-) TimerEvent: {}
+[16.380165] (-) TimerEvent: {}
+[16.481293] (-) TimerEvent: {}
+[16.582222] (-) TimerEvent: {}
+[16.684365] (-) TimerEvent: {}
+[16.785641] (-) TimerEvent: {}
+[16.887800] (-) TimerEvent: {}
+[16.988586] (-) TimerEvent: {}
+[17.089250] (-) TimerEvent: {}
+[17.190116] (-) TimerEvent: {}
+[17.290672] (-) TimerEvent: {}
+[17.391516] (-) TimerEvent: {}
+[17.493092] (-) TimerEvent: {}
+[17.593898] (-) TimerEvent: {}
+[17.694781] (-) TimerEvent: {}
+[17.796015] (-) TimerEvent: {}
+[17.897165] (-) TimerEvent: {}
+[17.998470] (-) TimerEvent: {}
+[18.100233] (-) TimerEvent: {}
+[18.202276] (-) TimerEvent: {}
+[18.307178] (-) TimerEvent: {}
+[18.407983] (-) TimerEvent: {}
+[18.508582] (-) TimerEvent: {}
+[18.609596] (-) TimerEvent: {}
+[18.710973] (-) TimerEvent: {}
+[18.811923] (-) TimerEvent: {}
+[18.912591] (-) TimerEvent: {}
+[19.013565] (-) TimerEvent: {}
+[19.114761] (-) TimerEvent: {}
+[19.215766] (-) TimerEvent: {}
+[19.317315] (-) TimerEvent: {}
+[19.418879] (-) TimerEvent: {}
+[19.519833] (-) TimerEvent: {}
+[19.620455] (-) TimerEvent: {}
+[19.721393] (-) TimerEvent: {}
+[19.822215] (-) TimerEvent: {}
+[19.923227] (-) TimerEvent: {}
+[20.024622] (-) TimerEvent: {}
+[20.125311] (-) TimerEvent: {}
+[20.225999] (-) TimerEvent: {}
+[20.326554] (-) TimerEvent: {}
+[20.427181] (-) TimerEvent: {}
+[20.528712] (-) TimerEvent: {}
+[20.630276] (-) TimerEvent: {}
+[20.731111] (-) TimerEvent: {}
+[20.833502] (-) TimerEvent: {}
+[20.934873] (-) TimerEvent: {}
+[21.036898] (-) TimerEvent: {}
+[21.139026] (-) TimerEvent: {}
+[21.241546] (-) TimerEvent: {}
+[21.342263] (-) TimerEvent: {}
+[21.442844] (-) TimerEvent: {}
+[21.543475] (-) TimerEvent: {}
+[21.644023] (-) TimerEvent: {}
+[21.744771] (-) TimerEvent: {}
+[21.846538] (-) TimerEvent: {}
+[21.947388] (-) TimerEvent: {}
+[22.048302] (-) TimerEvent: {}
+[22.149763] (-) TimerEvent: {}
+[22.250531] (-) TimerEvent: {}
+[22.352034] (-) TimerEvent: {}
+[22.460810] (-) TimerEvent: {}
+[22.565168] (-) TimerEvent: {}
+[22.666274] (-) TimerEvent: {}
+[22.768603] (-) TimerEvent: {}
+[22.870600] (-) TimerEvent: {}
+[22.971373] (-) TimerEvent: {}
+[23.074754] (-) TimerEvent: {}
+[23.175526] (-) TimerEvent: {}
+[23.277670] (-) TimerEvent: {}
+[23.378228] (-) TimerEvent: {}
+[23.478728] (-) TimerEvent: {}
+[23.579216] (-) TimerEvent: {}
+[23.679703] (-) TimerEvent: {}
+[23.780281] (-) TimerEvent: {}
+[23.881379] (-) TimerEvent: {}
+[23.982117] (-) TimerEvent: {}
+[24.082828] (-) TimerEvent: {}
+[24.183818] (-) TimerEvent: {}
+[24.284386] (-) TimerEvent: {}
+[24.385143] (-) TimerEvent: {}
+[24.486314] (-) TimerEvent: {}
+[24.588990] (-) TimerEvent: {}
+[24.692992] (-) TimerEvent: {}
+[24.800511] (-) TimerEvent: {}
+[24.901801] (-) TimerEvent: {}
+[25.003549] (-) TimerEvent: {}
+[25.104689] (-) TimerEvent: {}
+[25.205622] (-) TimerEvent: {}
+[25.306500] (-) TimerEvent: {}
+[25.407236] (-) TimerEvent: {}
+[25.508282] (-) TimerEvent: {}
+[25.611446] (-) TimerEvent: {}
+[25.712136] (-) TimerEvent: {}
+[25.817890] (-) TimerEvent: {}
+[25.920758] (-) TimerEvent: {}
+[26.024770] (-) TimerEvent: {}
+[26.129910] (-) TimerEvent: {}
+[26.234484] (-) TimerEvent: {}
+[26.340666] (-) TimerEvent: {}
+[26.441509] (-) TimerEvent: {}
+[26.543113] (-) TimerEvent: {}
+[26.647981] (-) TimerEvent: {}
+[26.749567] (-) TimerEvent: {}
+[26.850982] (-) TimerEvent: {}
+[26.952756] (-) TimerEvent: {}
+[27.053576] (-) TimerEvent: {}
+[27.154353] (-) TimerEvent: {}
+[27.254875] (-) TimerEvent: {}
+[27.355682] (-) TimerEvent: {}
+[27.456459] (-) TimerEvent: {}
+[27.557260] (-) TimerEvent: {}
+[27.658916] (-) TimerEvent: {}
+[27.760859] (-) TimerEvent: {}
+[27.861612] (-) TimerEvent: {}
+[27.962188] (-) TimerEvent: {}
+[28.062734] (-) TimerEvent: {}
+[28.163977] (-) TimerEvent: {}
+[28.265488] (-) TimerEvent: {}
+[28.366405] (-) TimerEvent: {}
+[28.467013] (-) TimerEvent: {}
+[28.567627] (-) TimerEvent: {}
+[28.668241] (-) TimerEvent: {}
+[28.768848] (-) TimerEvent: {}
+[28.869956] (-) TimerEvent: {}
+[28.970754] (-) TimerEvent: {}
+[29.072825] (-) TimerEvent: {}
+[29.173744] (-) TimerEvent: {}
+[29.274586] (-) TimerEvent: {}
+[29.375728] (-) TimerEvent: {}
+[29.476719] (-) TimerEvent: {}
+[29.578711] (-) TimerEvent: {}
+[29.679457] (-) TimerEvent: {}
+[29.780078] (-) TimerEvent: {}
+[29.881148] (-) TimerEvent: {}
+[29.983446] (-) TimerEvent: {}
+[30.084122] (-) TimerEvent: {}
+[30.185613] (-) TimerEvent: {}
+[30.286431] (-) TimerEvent: {}
+[30.387070] (-) TimerEvent: {}
+[30.487898] (-) TimerEvent: {}
+[30.588711] (-) TimerEvent: {}
+[30.689565] (-) TimerEvent: {}
+[30.790647] (-) TimerEvent: {}
+[30.891733] (-) TimerEvent: {}
+[30.992806] (-) TimerEvent: {}
+[31.094726] (-) TimerEvent: {}
+[31.196599] (-) TimerEvent: {}
+[31.297201] (-) TimerEvent: {}
+[31.398016] (-) TimerEvent: {}
+[31.499378] (-) TimerEvent: {}
+[31.601069] (-) TimerEvent: {}
+[31.701638] (-) TimerEvent: {}
+[31.802052] (-) TimerEvent: {}
+[31.902582] (-) TimerEvent: {}
+[32.004805] (-) TimerEvent: {}
+[32.106065] (-) TimerEvent: {}
+[32.206706] (-) TimerEvent: {}
+[32.308154] (-) TimerEvent: {}
+[32.412004] (-) TimerEvent: {}
+[32.514052] (-) TimerEvent: {}
+[32.618550] (-) TimerEvent: {}
+[32.720103] (-) TimerEvent: {}
+[32.821268] (-) TimerEvent: {}
+[32.922303] (-) TimerEvent: {}
+[33.022973] (-) TimerEvent: {}
+[33.124478] (-) TimerEvent: {}
+[33.226436] (-) TimerEvent: {}
+[33.327891] (-) TimerEvent: {}
+[33.431862] (-) TimerEvent: {}
+[33.537127] (-) TimerEvent: {}
+[33.644932] (-) TimerEvent: {}
+[33.750993] (-) TimerEvent: {}
+[33.855782] (-) TimerEvent: {}
+[33.968290] (-) TimerEvent: {}
+[34.075564] (-) TimerEvent: {}
+[34.176706] (-) TimerEvent: {}
+[34.281218] (-) TimerEvent: {}
+[34.386419] (-) TimerEvent: {}
+[34.491032] (-) TimerEvent: {}
+[34.592312] (-) TimerEvent: {}
+[34.693762] (-) TimerEvent: {}
+[34.794766] (-) TimerEvent: {}
+[34.895750] (-) TimerEvent: {}
+[34.997239] (-) TimerEvent: {}
+[35.098309] (-) TimerEvent: {}
+[35.199278] (-) TimerEvent: {}
+[35.304516] (-) TimerEvent: {}
+[35.408572] (-) TimerEvent: {}
+[35.509387] (-) TimerEvent: {}
+[35.610420] (-) TimerEvent: {}
+[35.711134] (-) TimerEvent: {}
+[35.812636] (-) TimerEvent: {}
+[35.913710] (-) TimerEvent: {}
+[36.014194] (-) TimerEvent: {}
+[36.114608] (-) TimerEvent: {}
+[36.215060] (-) TimerEvent: {}
+[36.315785] (-) TimerEvent: {}
+[36.416819] (-) TimerEvent: {}
+[36.519460] (-) TimerEvent: {}
+[36.620253] (-) TimerEvent: {}
+[36.721460] (-) TimerEvent: {}
+[36.823467] (-) TimerEvent: {}
+[36.924557] (-) TimerEvent: {}
+[37.025835] (-) TimerEvent: {}
+[37.126536] (-) TimerEvent: {}
+[37.227120] (-) TimerEvent: {}
+[37.327594] (-) TimerEvent: {}
+[37.428266] (-) TimerEvent: {}
+[37.529525] (-) TimerEvent: {}
+[37.629999] (-) TimerEvent: {}
+[37.730422] (-) TimerEvent: {}
+[37.830908] (-) TimerEvent: {}
+[37.931392] (-) TimerEvent: {}
+[38.031869] (-) TimerEvent: {}
+[38.132680] (-) TimerEvent: {}
+[38.233935] (-) TimerEvent: {}
+[38.334357] (-) TimerEvent: {}
+[38.434824] (-) TimerEvent: {}
+[38.535342] (-) TimerEvent: {}
+[38.635763] (-) TimerEvent: {}
+[38.736216] (-) TimerEvent: {}
+[38.836838] (-) TimerEvent: {}
+[38.937598] (-) TimerEvent: {}
+[39.038072] (-) TimerEvent: {}
+[39.138477] (-) TimerEvent: {}
+[39.238899] (-) TimerEvent: {}
+[39.339342] (-) TimerEvent: {}
+[39.439741] (-) TimerEvent: {}
+[39.540439] (-) TimerEvent: {}
+[39.641439] (-) TimerEvent: {}
+[39.741931] (-) TimerEvent: {}
+[39.842287] (-) TimerEvent: {}
+[39.942755] (-) TimerEvent: {}
+[40.043309] (-) TimerEvent: {}
+[40.144086] (-) TimerEvent: {}
+[40.244815] (-) TimerEvent: {}
+[40.345579] (-) TimerEvent: {}
+[40.446232] (-) TimerEvent: {}
+[40.546972] (-) TimerEvent: {}
+[40.647503] (-) TimerEvent: {}
+[40.748184] (-) TimerEvent: {}
+[40.848672] (-) TimerEvent: {}
+[40.949535] (-) TimerEvent: {}
+[41.051275] (-) TimerEvent: {}
+[41.151834] (-) TimerEvent: {}
+[41.252335] (-) TimerEvent: {}
+[41.352820] (-) TimerEvent: {}
+[41.453291] (-) TimerEvent: {}
+[41.553887] (-) TimerEvent: {}
+[41.654461] (-) TimerEvent: {}
+[41.755124] (-) TimerEvent: {}
+[41.855980] (-) TimerEvent: {}
+[41.956420] (-) TimerEvent: {}
+[42.056881] (-) TimerEvent: {}
+[42.157462] (-) TimerEvent: {}
+[42.258528] (-) TimerEvent: {}
+[42.359467] (-) TimerEvent: {}
+[42.460061] (-) TimerEvent: {}
+[42.560463] (-) TimerEvent: {}
+[42.660864] (-) TimerEvent: {}
+[42.761401] (-) TimerEvent: {}
+[42.861809] (-) TimerEvent: {}
+[42.962653] (-) TimerEvent: {}
+[43.063700] (-) TimerEvent: {}
+[43.164378] (-) TimerEvent: {}
+[43.265113] (-) TimerEvent: {}
+[43.365820] (-) TimerEvent: {}
+[43.466411] (-) TimerEvent: {}
+[43.567152] (-) TimerEvent: {}
+[43.668244] (-) TimerEvent: {}
+[43.769379] (-) TimerEvent: {}
+[43.870004] (-) TimerEvent: {}
+[43.970354] (-) TimerEvent: {}
+[44.070728] (-) TimerEvent: {}
+[44.171153] (-) TimerEvent: {}
+[44.271730] (-) TimerEvent: {}
+[44.372462] (-) TimerEvent: {}
+[44.473399] (-) TimerEvent: {}
+[44.573896] (-) TimerEvent: {}
+[44.674363] (-) TimerEvent: {}
+[44.774877] (-) TimerEvent: {}
+[44.875364] (-) TimerEvent: {}
+[44.975800] (-) TimerEvent: {}
+[45.076482] (-) TimerEvent: {}
+[45.178542] (-) TimerEvent: {}
+[45.279044] (-) TimerEvent: {}
+[45.379569] (-) TimerEvent: {}
+[45.480131] (-) TimerEvent: {}
+[45.580762] (-) TimerEvent: {}
+[45.681438] (-) TimerEvent: {}
+[45.782581] (-) TimerEvent: {}
+[45.883178] (-) TimerEvent: {}
+[45.983886] (-) TimerEvent: {}
+[46.084770] (-) TimerEvent: {}
+[46.185444] (-) TimerEvent: {}
+[46.286013] (-) TimerEvent: {}
+[46.386635] (-) TimerEvent: {}
+[46.487700] (-) TimerEvent: {}
+[46.588690] (-) TimerEvent: {}
+[46.689121] (-) TimerEvent: {}
+[46.789551] (-) TimerEvent: {}
+[46.889960] (-) TimerEvent: {}
+[46.990384] (-) TimerEvent: {}
+[47.090910] (-) TimerEvent: {}
+[47.191675] (-) TimerEvent: {}
+[47.292520] (-) TimerEvent: {}
+[47.392911] (-) TimerEvent: {}
+[47.493379] (-) TimerEvent: {}
+[47.593764] (-) TimerEvent: {}
+[47.694234] (-) TimerEvent: {}
+[47.795129] (-) TimerEvent: {}
+[47.896230] (-) TimerEvent: {}
+[47.997255] (-) TimerEvent: {}
+[48.098047] (-) TimerEvent: {}
+[48.198401] (-) TimerEvent: {}
+[48.298766] (-) TimerEvent: {}
+[48.399148] (-) TimerEvent: {}
+[48.499876] (-) TimerEvent: {}
+[48.600712] (-) TimerEvent: {}
+[48.701165] (-) TimerEvent: {}
+[48.802047] (-) TimerEvent: {}
+[48.902834] (-) TimerEvent: {}
+[49.003363] (-) TimerEvent: {}
+[49.103781] (-) TimerEvent: {}
+[49.204449] (-) TimerEvent: {}
+[49.305406] (-) TimerEvent: {}
+[49.406033] (-) TimerEvent: {}
+[49.506559] (-) TimerEvent: {}
+[49.607007] (-) TimerEvent: {}
+[49.707538] (-) TimerEvent: {}
+[49.808023] (-) TimerEvent: {}
+[49.908835] (-) TimerEvent: {}
+[50.010009] (-) TimerEvent: {}
+[50.111195] (-) TimerEvent: {}
+[50.212862] (-) TimerEvent: {}
+[50.313321] (-) TimerEvent: {}
+[50.413813] (-) TimerEvent: {}
+[50.514381] (-) TimerEvent: {}
+[50.615215] (-) TimerEvent: {}
+[50.715995] (-) TimerEvent: {}
+[50.816393] (-) TimerEvent: {}
+[50.916728] (-) TimerEvent: {}
+[51.017120] (-) TimerEvent: {}
+[51.117579] (-) TimerEvent: {}
+[51.218049] (-) TimerEvent: {}
+[51.318917] (-) TimerEvent: {}
+[51.419706] (-) TimerEvent: {}
+[51.520118] (-) TimerEvent: {}
+[51.620641] (-) TimerEvent: {}
+[51.721078] (-) TimerEvent: {}
+[51.821528] (-) TimerEvent: {}
+[51.922149] (-) TimerEvent: {}
+[52.023344] (-) TimerEvent: {}
+[52.123932] (-) TimerEvent: {}
+[52.224420] (-) TimerEvent: {}
+[52.325073] (-) TimerEvent: {}
+[52.425571] (-) TimerEvent: {}
+[52.525977] (-) TimerEvent: {}
+[52.626949] (-) TimerEvent: {}
+[52.729283] (-) TimerEvent: {}
+[52.830427] (-) TimerEvent: {}
+[52.930832] (-) TimerEvent: {}
+[53.031245] (-) TimerEvent: {}
+[53.131636] (-) TimerEvent: {}
+[53.232095] (-) TimerEvent: {}
+[53.332782] (-) TimerEvent: {}
+[53.433411] (-) TimerEvent: {}
+[53.533853] (-) TimerEvent: {}
+[53.634247] (-) TimerEvent: {}
+[53.734701] (-) TimerEvent: {}
+[53.835140] (-) TimerEvent: {}
+[53.935615] (-) TimerEvent: {}
+[54.036344] (-) TimerEvent: {}
+[54.136825] (-) TimerEvent: {}
+[54.237351] (-) TimerEvent: {}
+[54.337804] (-) TimerEvent: {}
+[54.438258] (-) TimerEvent: {}
+[54.538673] (-) TimerEvent: {}
+[54.639030] (-) TimerEvent: {}
+[54.739940] (-) TimerEvent: {}
+[54.841137] (-) TimerEvent: {}
+[54.941914] (-) TimerEvent: {}
+[55.042691] (-) TimerEvent: {}
+[55.148727] (-) TimerEvent: {}
+[55.249236] (-) TimerEvent: {}
+[55.350066] (-) TimerEvent: {}
+[55.450656] (-) TimerEvent: {}
+[55.551192] (-) TimerEvent: {}
+[55.651910] (-) TimerEvent: {}
+[55.752931] (-) TimerEvent: {}
+[55.854263] (-) TimerEvent: {}
+[55.955268] (-) TimerEvent: {}
+[56.056378] (-) TimerEvent: {}
+[56.157175] (-) TimerEvent: {}
+[56.257680] (-) TimerEvent: {}
+[56.358129] (-) TimerEvent: {}
+[56.458732] (-) TimerEvent: {}
+[56.559311] (-) TimerEvent: {}
+[56.661471] (-) TimerEvent: {}
+[56.762198] (-) TimerEvent: {}
+[56.865727] (-) TimerEvent: {}
+[56.972474] (-) TimerEvent: {}
+[57.073221] (-) TimerEvent: {}
+[57.174087] (-) TimerEvent: {}
+[57.274558] (-) TimerEvent: {}
+[57.374956] (-) TimerEvent: {}
+[57.475615] (-) TimerEvent: {}
+[57.576398] (-) TimerEvent: {}
+[57.677014] (-) TimerEvent: {}
+[57.778003] (-) TimerEvent: {}
+[57.878604] (-) TimerEvent: {}
+[57.979127] (-) TimerEvent: {}
+[58.079772] (-) TimerEvent: {}
+[58.180529] (-) TimerEvent: {}
+[58.281473] (-) TimerEvent: {}
+[58.382115] (-) TimerEvent: {}
+[58.483063] (-) TimerEvent: {}
+[58.583753] (-) TimerEvent: {}
+[58.684189] (-) TimerEvent: {}
+[58.784602] (-) TimerEvent: {}
+[58.885320] (-) TimerEvent: {}
+[58.986311] (-) TimerEvent: {}
+[59.086930] (-) TimerEvent: {}
+[59.187762] (-) TimerEvent: {}
+[59.288646] (-) TimerEvent: {}
+[59.389074] (-) TimerEvent: {}
+[59.489733] (-) TimerEvent: {}
+[59.590389] (-) TimerEvent: {}
+[59.690948] (-) TimerEvent: {}
+[59.791561] (-) TimerEvent: {}
+[59.891901] (-) TimerEvent: {}
+[59.992270] (-) TimerEvent: {}
+[60.092751] (-) TimerEvent: {}
+[60.193659] (-) TimerEvent: {}
+[60.294887] (-) TimerEvent: {}
+[60.395921] (-) TimerEvent: {}
+[60.497398] (-) TimerEvent: {}
+[60.598030] (-) TimerEvent: {}
+[60.698935] (-) TimerEvent: {}
+[60.799438] (-) TimerEvent: {}
+[60.899972] (-) TimerEvent: {}
+[61.000715] (-) TimerEvent: {}
+[61.101415] (-) TimerEvent: {}
+[61.201984] (-) TimerEvent: {}
+[61.302591] (-) TimerEvent: {}
+[61.403118] (-) TimerEvent: {}
+[61.491101] (tracking_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable moveit_mover\x1b[0m\n'}
+[61.503212] (-) TimerEvent: {}
+[61.603885] (-) TimerEvent: {}
+[61.704604] (-) TimerEvent: {}
+[61.805618] (-) TimerEvent: {}
+[61.907565] (-) TimerEvent: {}
+[62.012947] (-) TimerEvent: {}
+[62.114194] (-) TimerEvent: {}
+[62.216235] (-) TimerEvent: {}
+[62.317428] (-) TimerEvent: {}
+[62.424790] (-) TimerEvent: {}
+[62.527522] (-) TimerEvent: {}
+[62.628508] (-) TimerEvent: {}
+[62.732482] (-) TimerEvent: {}
+[62.833373] (-) TimerEvent: {}
+[62.934150] (-) TimerEvent: {}
+[63.034820] (-) TimerEvent: {}
+[63.135516] (-) TimerEvent: {}
+[63.236640] (-) TimerEvent: {}
+[63.338624] (-) TimerEvent: {}
+[63.441697] (-) TimerEvent: {}
+[63.544339] (-) TimerEvent: {}
+[63.644976] (-) TimerEvent: {}
+[63.745416] (-) TimerEvent: {}
+[63.845871] (-) TimerEvent: {}
+[63.946417] (-) TimerEvent: {}
+[64.047454] (-) TimerEvent: {}
+[64.148250] (-) TimerEvent: {}
+[64.248908] (-) TimerEvent: {}
+[64.349611] (-) TimerEvent: {}
+[64.450169] (-) TimerEvent: {}
+[64.550627] (-) TimerEvent: {}
+[64.651204] (-) TimerEvent: {}
+[64.752215] (-) TimerEvent: {}
+[64.853023] (-) TimerEvent: {}
+[64.954043] (-) TimerEvent: {}
+[65.054546] (-) TimerEvent: {}
+[65.073043] (tracking_pkg) StdoutLine: {'line': b'[100%] Built target moveit_mover\n'}
+[65.127101] (tracking_pkg) CommandEnded: {'returncode': 0}
+[65.130014] (tracking_pkg) JobProgress: {'identifier': 'tracking_pkg', 'progress': 'install'}
+[65.136283] (tracking_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg'], 'cwd': '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'daniel'), ('LC_TIME', 'de_CH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('OLDPWD', '/home/daniel'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '1011'), ('SYSTEMD_EXEC_PID', '1392'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4371'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'daniel'), ('JOURNAL_STREAM', '8:11257'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-ThinkEdge-SE30:@/tmp/.ICE-unix/1365,unix/daniel-ThinkEdge-SE30:/tmp/.ICE-unix/1365'), ('INVOCATION_ID', 'ebab6eb98bf14c97906d49c40f29bc88'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d5de574e-413c-4371-bfdb-01f95c1306b1'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo:/home/daniel/vm2_holistic_system_ws/install/tracking_pkg:/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback:/opt/ros/humble')]), 'shell': False}
+[65.155867] (-) TimerEvent: {}
+[65.185383] (tracking_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[65.190536] (tracking_pkg) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[65.191288] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/hand_tracker.py\n'}
+[65.193079] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/camera_publisher.py\n'}
+[65.194308] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/frame_publisher.py\n'}
+[65.195383] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/gesture_pose_publisher.py\n'}
+[65.196343] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/box_publisher.py\n'}
+[65.196730] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/socket_mover.py\n'}
+[65.197055] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/gripper_mover.py\n'}
+[65.197469] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/launch/moveit_launch.py\n'}
+[65.197956] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/launch/web_socket_launch.py\n'}
+[65.198352] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/tracking_pkg/moveit_mover\n'}
+[65.199162] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/package_run_dependencies/tracking_pkg\n'}
+[65.199646] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/parent_prefix_path/tracking_pkg\n'}
+[65.200813] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/ament_prefix_path.sh\n'}
+[65.201467] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/ament_prefix_path.dsv\n'}
+[65.202105] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/path.sh\n'}
+[65.202938] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/environment/path.dsv\n'}
+[65.204912] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.bash\n'}
+[65.205615] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.sh\n'}
+[65.206232] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.zsh\n'}
+[65.206788] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/local_setup.dsv\n'}
+[65.207906] (tracking_pkg) StdoutLine: {'line': b'-- Symlinking: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.dsv\n'}
+[65.247816] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/ament_index/resource_index/packages/tracking_pkg\n'}
+[65.248459] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/cmake/tracking_pkgConfig.cmake\n'}
+[65.249141] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/cmake/tracking_pkgConfig-version.cmake\n'}
+[65.250096] (tracking_pkg) StdoutLine: {'line': b'-- Up-to-date symlink: /home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.xml\n'}
+[65.256099] (-) TimerEvent: {}
+[65.258150] (tracking_pkg) CommandEnded: {'returncode': 0}
+[65.343577] (tracking_pkg) JobEnded: {'identifier': 'tracking_pkg', 'rc': 0}
+[65.350454] (-) EventReactorShutdown: {}

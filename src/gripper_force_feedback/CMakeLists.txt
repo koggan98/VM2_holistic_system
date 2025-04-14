@@ -20,6 +20,7 @@ install(
   #src/force_logger.py 
   #src/live_plotter.py
   #src/gripper_opener.py
+  src/gripper_opener_with_zeroer.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

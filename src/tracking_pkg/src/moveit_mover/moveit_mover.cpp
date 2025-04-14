@@ -27,6 +27,12 @@ public:
         hand_position_sub_ = this->create_subscription<geometry_msgs::msg::Pose>("/hand_pose", 10,
         std::bind(&HandPositionFollower::handPositionCallback, this, std::placeholders::_1));
 
+        // Gripper-Status abbonnieren
+        gripper_done_sub_ = this->create_subscription<std_msgs::msg::Bool>(
+        "/gripper_done", 10,
+        std::bind(&HandPositionFollower::gripperDoneCallback, this, std::placeholders::_1));
+
+
         // Gripper publisher initialisieren
         gripper_pub_ = this->create_publisher<std_msgs::msg::Bool>("/gripper_command", 10);
 
@@ -44,19 +50,19 @@ public:
         move_group_->setMaxAccelerationScalingFactor(0.1);
 
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
-
+        
         // Gripper öffnen (false)
-        RCLCPP_INFO(this->get_logger(), "Opening gripper...");
-        publishGripperCommand(false);
-        std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
+        //RCLCPP_INFO(this->get_logger(), "Opening gripper...");
+        //publishGripperCommand(false);
+        //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
 
         // Fahre zur Startposition
         //moveToObjectPosition();
 
         // Gripper schließen (true)
-        RCLCPP_INFO(this->get_logger(), "Closing gripper...");
-        publishGripperCommand(true);
-        std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
+        //RCLCPP_INFO(this->get_logger(), "Closing gripper...");
+        //publishGripperCommand(true);
+        //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
 
         // Über das Objekt fahren
         //moveAboveObject();
@@ -99,7 +105,7 @@ private:
         shoulder_constraint.tolerance_below = 0.785;           // -0.785 rad ≈ -45°
         shoulder_constraint.weight = 1.0;
         constraints.joint_constraints.push_back(shoulder_constraint);
-        
+
         // Constraint setzen
         move_group_->setPathConstraints(constraints);
 
@@ -112,16 +118,11 @@ private:
             RCLCPP_INFO(this->get_logger(), "Planning successful, executing...");
             move_group_->execute(plan);
 
-            // Greifer öffnen (false)
-            RCLCPP_INFO(this->get_logger(), "Opening gripper after reaching target pose...");
-            publishGripperCommand(false);
+            // Greifer zeroen und öffnung initialisieren (true)
+            RCLCPP_INFO(this->get_logger(), "Zeroing gripper after reaching target pose...");
+            publishGripperCommand(true);
 
-            // Wartezeit nach Zielerreichung (2 Sekunden)
-            RCLCPP_INFO(this->get_logger(), "Waiting for 4 seconds...");
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-
-            // Rückkehr zur Home-Position über Joint-Winkel
-            moveToHomePositionUsingJoints();
+            RCLCPP_INFO(this->get_logger(), "Waiting for feedback via /gripper_done...");
         } else {
             RCLCPP_ERROR(this->get_logger(), "Planning failed.");
         }
@@ -152,6 +153,16 @@ private:
         }
     }
 
+    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr gripper_done_sub_;
+    void gripperDoneCallback(const std_msgs::msg::Bool::SharedPtr msg) {
+        if (msg->data) {
+            RCLCPP_INFO(this->get_logger(), "Force feedback disabled");
+            publishGripperCommand(false);
+            RCLCPP_INFO(this->get_logger(), "Gripper opened – will return to home in 0 second...");
+            std::this_thread::sleep_for(std::chrono::seconds(0));
+            moveToHomePositionUsingJoints();
+        }
+    }
     void moveToObjectPosition() {
     // Definiere die Zielpose für die Startposition
         geometry_msgs::msg::Pose start_pose;

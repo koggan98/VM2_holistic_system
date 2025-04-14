@@ -1,0 +1,1 @@
+/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback/src/gripper_opener_with_zeroer.py
