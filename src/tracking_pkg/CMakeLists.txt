@@ -36,12 +36,18 @@ install(
 
 # Ziele definieren
 add_executable(moveit_mover src/moveit_mover/moveit_mover.cpp)
+add_executable(loop_mover src/moveit_mover/loop_mover.cpp)
 
 # Abhängigkeiten mit dem Ziel verknüpfen
 ament_target_dependencies(moveit_mover rclcpp geometry_msgs moveit_ros_planning_interface)
+ament_target_dependencies(loop_mover rclcpp geometry_msgs moveit_ros_planning_interface)
 
 # Installation des ausführbaren Ziels
 install(TARGETS moveit_mover
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS loop_mover
   DESTINATION lib/${PROJECT_NAME}
 )
 

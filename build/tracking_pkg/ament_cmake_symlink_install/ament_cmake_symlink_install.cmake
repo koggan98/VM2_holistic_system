@@ -319,6 +319,9 @@ ament_cmake_symlink_install_directory("/home/daniel/vm2_holistic_system_ws/src/t
 # install("TARGETS" "moveit_mover" "DESTINATION" "lib/tracking_pkg")
 include("/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install("TARGETS" "loop_mover" "DESTINATION" "lib/tracking_pkg")
+include("/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(FILES "/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tracking_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/tracking_pkg" FILES "/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tracking_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

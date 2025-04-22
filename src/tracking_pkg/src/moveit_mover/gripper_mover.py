@@ -62,8 +62,7 @@ class URCommand:
 class SocketControllerNode(Node):
     def __init__(self):
         super().__init__('socket_controller')
-        self.robot_ip = "100.42.0.2" 
-
+        self.robot_ip = "10.42.0.2" 
         self.robot_command_port = 30002
         self.gripper_port = 63352
         self.ur_node = URCommand(self.robot_ip, self.robot_command_port, self.gripper_port)

@@ -210,6 +210,43 @@ moveit_mover/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_mover.dir/build.make CMakeFiles/moveit_mover.dir/build
 .PHONY : moveit_mover/fast
 
+#=============================================================================
+# Target rules for targets named loop_mover
+
+# Build rule for target.
+loop_mover: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 loop_mover
+.PHONY : loop_mover
+
+# fast build rule for target.
+loop_mover/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/loop_mover.dir/build.make CMakeFiles/loop_mover.dir/build
+.PHONY : loop_mover/fast
+
+src/moveit_mover/loop_mover.o: src/moveit_mover/loop_mover.cpp.o
+.PHONY : src/moveit_mover/loop_mover.o
+
+# target to build an object file
+src/moveit_mover/loop_mover.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/loop_mover.dir/build.make CMakeFiles/loop_mover.dir/src/moveit_mover/loop_mover.cpp.o
+.PHONY : src/moveit_mover/loop_mover.cpp.o
+
+src/moveit_mover/loop_mover.i: src/moveit_mover/loop_mover.cpp.i
+.PHONY : src/moveit_mover/loop_mover.i
+
+# target to preprocess a source file
+src/moveit_mover/loop_mover.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/loop_mover.dir/build.make CMakeFiles/loop_mover.dir/src/moveit_mover/loop_mover.cpp.i
+.PHONY : src/moveit_mover/loop_mover.cpp.i
+
+src/moveit_mover/loop_mover.s: src/moveit_mover/loop_mover.cpp.s
+.PHONY : src/moveit_mover/loop_mover.s
+
+# target to generate assembly for a file
+src/moveit_mover/loop_mover.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/loop_mover.dir/build.make CMakeFiles/loop_mover.dir/src/moveit_mover/loop_mover.cpp.s
+.PHONY : src/moveit_mover/loop_mover.cpp.s
+
 src/moveit_mover/moveit_mover.o: src/moveit_mover/moveit_mover.cpp.o
 .PHONY : src/moveit_mover/moveit_mover.o
 
@@ -249,7 +286,11 @@ help:
 	@echo "... test"
 	@echo "... tracking_pkg_uninstall"
 	@echo "... uninstall"
+	@echo "... loop_mover"
 	@echo "... moveit_mover"
+	@echo "... src/moveit_mover/loop_mover.o"
+	@echo "... src/moveit_mover/loop_mover.i"
+	@echo "... src/moveit_mover/loop_mover.s"
 	@echo "... src/moveit_mover/moveit_mover.o"
 	@echo "... src/moveit_mover/moveit_mover.i"
 	@echo "... src/moveit_mover/moveit_mover.s"
