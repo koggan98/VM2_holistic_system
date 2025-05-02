@@ -32,7 +32,6 @@ public:
         "/gripper_done", 10,
         std::bind(&HandPositionFollower::gripperDoneCallback, this, std::placeholders::_1));
 
-
         // Gripper publisher initialisieren
         gripper_pub_ = this->create_publisher<std_msgs::msg::Bool>("/gripper_command", 10);
 
@@ -50,42 +49,22 @@ public:
         move_group_->setMaxAccelerationScalingFactor(0.1);
 
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
-        
-        // Gripper öffnen (false)
-        //RCLCPP_INFO(this->get_logger(), "Opening gripper...");
-        //publishGripperCommand(false);
-        //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
-
-        // Fahre zur Startposition
-        //moveToObjectPosition();
-
-        // Gripper schließen (true)
-        //RCLCPP_INFO(this->get_logger(), "Closing gripper...");
-        //publishGripperCommand(true);
-        //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
-
-        // Über das Objekt fahren
-        //moveAboveObject();
     }
 
 private:
     void handPositionCallback(const geometry_msgs::msg::Pose::SharedPtr msg) {
         // Zielpose definieren
         geometry_msgs::msg::Pose target_pose;
-
         double x_pos = msg->position.x;
         double y_pos = msg->position.y;
         double z_pos = msg->position.z;
-        
         RCLCPP_INFO(this->get_logger(), "Received hand position: x=%.3f, y=%.3f, z=%.3f", x_pos, y_pos, z_pos);
-
         // target_pose.position = msg->position;
         target_pose.position.x = x_pos - 0.2; 
         target_pose.position.y = y_pos;
         target_pose.position.z = z_pos + 0.15;
         target_pose.orientation = msg->orientation;
 
-        
         // constraints definieren
         moveit_msgs::msg::Constraints constraints;
         // Elbow up constraints hinzufügen (elbow joint muss positiv sein)
@@ -121,7 +100,6 @@ private:
             // Greifer zeroen und öffnung initialisieren (true)
             RCLCPP_INFO(this->get_logger(), "Zeroing gripper after reaching target pose...");
             publishGripperCommand(true);
-
             RCLCPP_INFO(this->get_logger(), "Waiting for feedback via /gripper_done...");
         } else {
             RCLCPP_ERROR(this->get_logger(), "Planning failed.");
@@ -158,58 +136,13 @@ private:
         if (msg->data) {
             RCLCPP_INFO(this->get_logger(), "Force feedback disabled");
             publishGripperCommand(false);
-            RCLCPP_INFO(this->get_logger(), "Gripper opened – will return to home in 0 second...");
+            RCLCPP_INFO(this->get_logger(), "Gripper opened – will return to home...");
             std::this_thread::sleep_for(std::chrono::seconds(0));
             moveToHomePositionUsingJoints();
         }
     }
-    void moveToObjectPosition() {
-    // Definiere die Zielpose für die Startposition
-        geometry_msgs::msg::Pose start_pose;
-        start_pose.position.x = 0.4;
-        start_pose.position.y = 0.2;
-        start_pose.position.z = 0.27;
-        start_pose.orientation.x = 1.0;
-        start_pose.orientation.y = 0.0;
-        start_pose.orientation.z = 0.0;
-        start_pose.orientation.w = 0.0;
 
-        // Zielpose setzen
-        move_group_->setPoseTarget(start_pose);
-
-        // Bewegung planen und ausführen
-        moveit::planning_interface::MoveGroupInterface::Plan plan;
-        if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-            RCLCPP_INFO(this->get_logger(), "Planning to Start Position successful, executing...");
-            move_group_->execute(plan);
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Planning to Start Position failed.");
-        }
-    }
-
-    void moveAboveObject() {
-        geometry_msgs::msg::Pose start_pose;
-        start_pose.position.x = 0.4;
-        start_pose.position.y = 0.2;
-        start_pose.position.z = 0.33;
-        start_pose.orientation.x = 1.0;
-        start_pose.orientation.y = 0.0;
-        start_pose.orientation.z = 0.0;
-        start_pose.orientation.w = 0.0;
-
-        // Zielpose setzen
-        move_group_->setPoseTarget(start_pose);
-
-        // Bewegung planen und ausführen
-        moveit::planning_interface::MoveGroupInterface::Plan plan;
-        if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-            RCLCPP_INFO(this->get_logger(), "Planning to Start Position successful, executing...");
-            move_group_->execute(plan);
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Planning to Start Position failed.");
-        }
-    }
-
+    // Funktion zum Senden von Gripper-Befehlen
     void publishGripperCommand(bool close) {
         auto msg = std_msgs::msg::Bool();
         msg.data = close;

@@ -1,3 +1,4 @@
+KOPIE HIERVON IN MOVEVIT_MOVER!!!
 #!/usr/bin/env python3
 
 

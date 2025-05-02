@@ -61,11 +61,7 @@ public:
         p.orientation.z = 0.0;
         p.orientation.w = 0.0;
 
-        for (int i = 0; i < 8; ++i) {
-            p.position.x = 0.4;
-            p.position.y = 0.1 * i; // Beispiel: versetzte y-Werte
-            p.position.z = 0.27;
-            target_poses_.push_back(p);
+
 
         geometry_msgs::msg::Pose p1;
         p1.position.x = 0.3;
@@ -77,8 +73,8 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p1);
 
-                geometry_msgs::msg::Pose p2;
-        p1.position.x = 0.3;
+        geometry_msgs::msg::Pose p2;
+        p1.position.x = -0.3;
         p1.position.y = 0.25;
         p1.position.z = 0.33;
         p1.orientation.x = 1.0;
@@ -87,7 +83,7 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p2);
 
-                geometry_msgs::msg::Pose p3;
+        geometry_msgs::msg::Pose p3;
         p1.position.x = 0.3;
         p1.position.y = 0.3;
         p1.position.z = 0.33;
@@ -97,8 +93,8 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p3);
 
-                geometry_msgs::msg::Pose p4;
-        p1.position.x = 0.2;
+        geometry_msgs::msg::Pose p4;
+        p1.position.x = -0.2;
         p1.position.y = 0.2;
         p1.position.z = 0.33;
         p1.orientation.x = 1.0;
@@ -107,7 +103,7 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p4);
 
-                geometry_msgs::msg::Pose p5;
+        geometry_msgs::msg::Pose p5;
         p1.position.x = 0.2;
         p1.position.y = 0.25;
         p1.position.z = 0.33;
@@ -117,7 +113,7 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p5);
 
-                geometry_msgs::msg::Pose p6;
+        geometry_msgs::msg::Pose p6;
         p1.position.x = 0.3;
         p1.position.y = 0.3;
         p1.position.z = 0.33;
@@ -127,7 +123,7 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p6);
 
-                geometry_msgs::msg::Pose p7;
+        geometry_msgs::msg::Pose p7;
         p1.position.x = 0.35;
         p1.position.y = 0.2;
         p1.position.z = 0.33;
@@ -137,7 +133,7 @@ public:
         p1.orientation.w = 0.0;
         target_poses_.push_back(p7);
 
-                geometry_msgs::msg::Pose p8;
+        geometry_msgs::msg::Pose p8;
         p1.position.x = 0.35;
         p1.position.y = 0.25;
         p1.position.z = 0.33;
@@ -146,8 +142,6 @@ public:
         p1.orientation.z = 0.0;
         p1.orientation.w = 0.0;
         target_poses_.push_back(p8);
-
-}
 
         // Gripper öffnen (false)
         //RCLCPP_INFO(this->get_logger(), "Opening gripper...");

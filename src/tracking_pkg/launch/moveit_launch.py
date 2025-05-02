@@ -36,8 +36,8 @@ def generate_launch_description():
       #  ),
         Node(
             package='tracking_pkg',
-            executable='gripper_mover.py', 
-            name='gripper_mover',
+            executable='gripper_opener_with_zeroer.py', 
+            name='gripper_opener_with_zeroer',
             output='screen'
         ),
         
