@@ -1,0 +1,295 @@
+[0.203s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.204s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7e9dce473d30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7e9dce473850>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7e9dce473850>>, mixin_verb=('build',))
+[0.264s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.264s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.264s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.265s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.265s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.265s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.265s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/daniel/vm2_holistic_system_ws'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'ignore'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'ignore_ament_install'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['colcon_pkg']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'colcon_pkg'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['colcon_meta']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'colcon_meta'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['ros']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'ros'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['cmake', 'python']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'cmake'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'python'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extensions ['python_setup_py']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(files) by extension 'python_setup_py'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'ignore'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'ignore_ament_install'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['colcon_pkg']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'colcon_pkg'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['colcon_meta']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'colcon_meta'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['ros']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'ros'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['cmake', 'python']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'cmake'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'python'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extensions ['python_setup_py']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation) by extension 'python_setup_py'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extension 'ignore'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extensions ['colcon_pkg']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extension 'colcon_pkg'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extensions ['colcon_meta']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extension 'colcon_meta'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extensions ['ros']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo) by extension 'ros'
+[0.310s] DEBUG:colcon.colcon_core.package_identification:Package 'src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo' with type 'ros.ament_cmake' and name 'ur_simulation_gazebo'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extension 'colcon_meta'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extensions ['ros']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_force_feedback) by extension 'ros'
+[0.312s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gripper_force_feedback' with type 'ros.ament_cmake' and name 'gripper_force_feedback'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extension 'ignore'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extension 'ignore_ament_install'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extensions ['colcon_pkg']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extension 'colcon_pkg'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extensions ['colcon_meta']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extension 'colcon_meta'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extensions ['ros']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(src/tracking_pkg) by extension 'ros'
+[0.314s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tracking_pkg' with type 'ros.ament_cmake' and name 'tracking_pkg'
+[0.314s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.314s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.314s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.315s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.315s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.357s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.357s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.364s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/daniel/vm2_holistic_system_ws/install
+[0.367s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 338 installed packages in /opt/ros/humble
+[0.370s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_args' from command line to 'None'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_target' from command line to 'None'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_clean_cache' from command line to 'False'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_clean_first' from command line to 'False'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'cmake_force_configure' from command line to 'False'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'ament_cmake_args' from command line to 'None'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'catkin_cmake_args' from command line to 'None'
+[0.468s] Level 5:colcon.colcon_core.verb:set package 'gripper_force_feedback' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.468s] DEBUG:colcon.colcon_core.verb:Building package 'gripper_force_feedback' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback', 'merge_install': False, 'path': '/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback', 'symlink_install': True, 'test_result_base': None}
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_args' from command line to 'None'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_target' from command line to 'None'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'tracking_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.469s] DEBUG:colcon.colcon_core.verb:Building package 'tracking_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg', 'merge_install': False, 'path': '/home/daniel/vm2_holistic_system_ws/src/tracking_pkg', 'symlink_install': True, 'test_result_base': None}
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_target' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_clean_cache' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_clean_first' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'cmake_force_configure' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'ament_cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'catkin_cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'ur_simulation_gazebo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.470s] DEBUG:colcon.colcon_core.verb:Building package 'ur_simulation_gazebo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo', 'merge_install': False, 'path': '/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo', 'symlink_install': True, 'test_result_base': None}
+[0.471s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.472s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.473s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback' with build type 'ament_cmake'
+[0.473s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback'
+[0.479s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.479s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.479s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.487s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/daniel/vm2_holistic_system_ws/src/tracking_pkg' with build type 'ament_cmake'
+[0.488s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/daniel/vm2_holistic_system_ws/src/tracking_pkg'
+[0.489s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.489s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.499s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo' with build type 'ament_cmake'
+[0.499s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo'
+[0.500s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.500s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.544s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[0.585s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8
+[0.603s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo -- -j8 -l8
+[0.841s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo -- -j8 -l8
+[0.954s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo
+[0.965s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback -- -j8 -l8
+[0.981s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+[1.087s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_simulation_gazebo)
+[1.089s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo
+[1.110s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo' for CMake module files
+[1.113s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo' for CMake config files
+[1.114s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_simulation_gazebo', 'cmake_prefix_path')
+[1.115s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.ps1'
+[1.120s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.dsv'
+[1.122s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.sh'
+[1.126s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/bin'
+[1.127s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/lib/pkgconfig/ur_simulation_gazebo.pc'
+[1.128s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/lib/python3.10/site-packages'
+[1.130s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/bin'
+[1.136s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.ps1'
+[1.148s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.dsv'
+[1.159s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.sh'
+[1.174s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.bash'
+[1.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.zsh'
+[1.210s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/colcon-core/packages/ur_simulation_gazebo)
+[1.223s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_simulation_gazebo)
+[1.227s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo' for CMake module files
+[1.234s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo' for CMake config files
+[1.237s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_simulation_gazebo', 'cmake_prefix_path')
+[1.240s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.ps1'
+[1.244s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.dsv'
+[1.250s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/hook/cmake_prefix_path.sh'
+[1.256s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/bin'
+[1.257s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/lib/pkgconfig/ur_simulation_gazebo.pc'
+[1.259s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/lib/python3.10/site-packages'
+[1.261s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/bin'
+[1.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.ps1'
+[1.267s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.dsv'
+[1.271s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.sh'
+[1.276s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.bash'
+[1.281s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/ur_simulation_gazebo/package.zsh'
+[1.285s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/share/colcon-core/packages/ur_simulation_gazebo)
+[1.296s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gripper_force_feedback)
+[1.299s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+[1.301s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback' for CMake module files
+[1.308s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback' for CMake config files
+[1.310s] Level 1:colcon.colcon_core.shell:create_environment_hook('gripper_force_feedback', 'cmake_prefix_path')
+[1.312s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.ps1'
+[1.316s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.dsv'
+[1.319s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.sh'
+[1.324s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib'
+[1.326s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/bin'
+[1.327s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib/pkgconfig/gripper_force_feedback.pc'
+[1.329s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib/python3.10/site-packages'
+[1.332s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/bin'
+[1.335s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.ps1'
+[1.340s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.dsv'
+[1.342s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.sh'
+[1.346s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.bash'
+[1.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.zsh'
+[1.352s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/colcon-core/packages/gripper_force_feedback)
+[1.356s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gripper_force_feedback)
+[1.358s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback' for CMake module files
+[1.363s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback' for CMake config files
+[1.366s] Level 1:colcon.colcon_core.shell:create_environment_hook('gripper_force_feedback', 'cmake_prefix_path')
+[1.369s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.ps1'
+[1.374s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.dsv'
+[1.378s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/hook/cmake_prefix_path.sh'
+[1.385s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib'
+[1.386s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/bin'
+[1.389s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib/pkgconfig/gripper_force_feedback.pc'
+[1.392s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/lib/python3.10/site-packages'
+[1.397s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/bin'
+[1.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.ps1'
+[1.408s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.dsv'
+[1.413s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.sh'
+[1.418s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.bash'
+[1.422s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/gripper_force_feedback/package.zsh'
+[1.428s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback/share/colcon-core/packages/gripper_force_feedback)
+[26.793s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8
+[26.797s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
+[26.852s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tracking_pkg)
+[26.853s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg' for CMake module files
+[26.855s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
+[26.857s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg' for CMake config files
+[26.859s] Level 1:colcon.colcon_core.shell:create_environment_hook('tracking_pkg', 'cmake_prefix_path')
+[26.860s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.ps1'
+[26.862s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.dsv'
+[26.863s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.sh'
+[26.864s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib'
+[26.865s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/bin'
+[26.865s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/pkgconfig/tracking_pkg.pc'
+[26.865s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/python3.10/site-packages'
+[26.866s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/bin'
+[26.866s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.ps1'
+[26.867s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.dsv'
+[26.868s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.sh'
+[26.869s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.bash'
+[26.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.zsh'
+[26.870s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/colcon-core/packages/tracking_pkg)
+[26.871s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tracking_pkg)
+[26.871s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg' for CMake module files
+[26.872s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg' for CMake config files
+[26.873s] Level 1:colcon.colcon_core.shell:create_environment_hook('tracking_pkg', 'cmake_prefix_path')
+[26.873s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.ps1'
+[26.873s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.dsv'
+[26.874s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/hook/cmake_prefix_path.sh'
+[26.875s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib'
+[26.875s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/bin'
+[26.875s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/pkgconfig/tracking_pkg.pc'
+[26.875s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/lib/python3.10/site-packages'
+[26.875s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/bin'
+[26.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.ps1'
+[26.876s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.dsv'
+[26.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.sh'
+[26.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.bash'
+[26.879s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/tracking_pkg/package.zsh'
+[26.880s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/vm2_holistic_system_ws/install/tracking_pkg/share/colcon-core/packages/tracking_pkg)
+[26.881s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[26.882s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[26.882s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[26.882s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[26.901s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[26.901s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[26.901s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[26.943s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[26.944s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/vm2_holistic_system_ws/install/local_setup.ps1'
+[26.949s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/daniel/vm2_holistic_system_ws/install/_local_setup_util_ps1.py'
+[26.956s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/vm2_holistic_system_ws/install/setup.ps1'
+[26.964s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/vm2_holistic_system_ws/install/local_setup.sh'
+[26.967s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/daniel/vm2_holistic_system_ws/install/_local_setup_util_sh.py'
+[26.970s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/vm2_holistic_system_ws/install/setup.sh'
+[26.974s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/vm2_holistic_system_ws/install/local_setup.bash'
+[26.976s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/vm2_holistic_system_ws/install/setup.bash'
+[26.980s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/vm2_holistic_system_ws/install/local_setup.zsh'
+[26.982s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/vm2_holistic_system_ws/install/setup.zsh'

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-
-# gripper_command true = sensing inaktiv
-# gripper_command false = offsetting und sensing aktiv
+# gripper_mover true = gripper open
+# gripper_mover false = gripper close
+# gripper_zeroer true = sensing aktiv
+# gripper_zeroer false = sensing inaktiv
 
 # offsetten: node.reset_force_offset()
 # in code offsetten: self.reset_force_offset()
@@ -82,7 +83,7 @@ class SocketControllerNode(Node):
         self.torque_offset = None
 
         # Bool für Node aktivierung
-        self.active_ = False
+        self.zeroer_active_ = False
 
         # Subscriber für die Kraftsensor-Daten
         self.subscription = self.create_subscription(WrenchStamped,'/force_torque_sensor_broadcaster/wrench', self.force_callback, 10)
@@ -106,13 +107,13 @@ class SocketControllerNode(Node):
 
     def gripper_zeroer_callback(self, bool_msg):
         # Extrahiere bool aus nachricht
-        self.active_ = bool_msg.data
-        self.get_logger().info(f"Aktivitätsstatus: {'Aktiv' if self.active_ else 'Inaktiv'}")
-        if self.active_:
+        self.zeroer_active_ = bool_msg.data
+        self.get_logger().info(f"Aktivitätsstatus: {'Aktiv' if self.zeroer_active_ else 'Inaktiv'}")
+        if self.zeroer_active_:
             self.reset_force_offset()
 
     def force_callback(self, msg):
-        if not self.active_:
+        if not self.zeroer_active_:
             return
         
         # Falls der Offset noch nicht gesetzt wurde, speichere ihn als Nullpunkt
@@ -127,14 +128,14 @@ class SocketControllerNode(Node):
         force_z = msg.wrench.force.z - self.force_offset.z
 
         # Nur wenn sich die Kraft von der Nullposition signifikant ändert, soll der Greifer öffnen
-        if abs(force_x) > 3 or abs(force_y) > 3 or abs(force_z) > 3:
+        if abs(force_x) > 1 or abs(force_y) > 1 or abs(force_z) > 1:
             self.get_logger().info("Force threshold exceeded, opening gripper.")
             self.ur_node.command_gripper(0, speed=255, force=1) # 0 = auf
             msg = Bool()
             msg.data = True
             self.status_publisher.publish(msg)
             self.get_logger().info("Gripper open.")
-            self.active_ = False
+            self.zeroer_active_ = False
 
 
     def reset_force_offset(self):

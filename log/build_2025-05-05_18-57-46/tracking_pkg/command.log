@@ -1,0 +1,2 @@
+Invoking command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8
+Invoked command in '/home/daniel/vm2_holistic_system_ws/build/tracking_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/vm2_holistic_system_ws/build/tracking_pkg -- -j8 -l8

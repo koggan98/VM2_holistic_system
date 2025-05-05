@@ -16,7 +16,7 @@ from tf2_ros import StaticTransformBroadcaster
 
 
 # Board-Konfiguration
-MARKER_SIZE = 0.08  # Größe eines Markers in Metern
+MARKER_SIZE = 0.10  # Größe eines Markers in Metern
 MARKER_SEPARATION = 0.15  # Abstand zwischen den Markern in Metern
 MARKER_OFFSET = -0.3
 BOARD_ROWS = 2
