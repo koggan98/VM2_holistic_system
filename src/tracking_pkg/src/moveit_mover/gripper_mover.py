@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# gripper_command true = gripper close
+# gripper_command false = gripper open
 
 import socket
 import rclpy

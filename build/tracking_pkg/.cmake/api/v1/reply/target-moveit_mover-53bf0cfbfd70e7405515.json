@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "loop_mover"
+			"path" : "moveit_mover"
 		}
 	],
 	"backtrace" : 1,
@@ -474,7 +474,7 @@
 			]
 		}
 	],
-	"id" : "loop_mover::@6890427a1f51a3e7e1df",
+	"id" : "moveit_mover::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -1542,8 +1542,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "loop_mover",
-	"nameOnDisk" : "loop_mover",
+	"name" : "moveit_mover",
+	"nameOnDisk" : "moveit_mover",
 	"paths" : 
 	{
 		"build" : ".",
@@ -1564,7 +1564,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/moveit_mover/loop_mover.cpp",
+			"path" : "src/moveit_mover/moveit_mover.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

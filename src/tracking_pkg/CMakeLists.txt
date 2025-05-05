@@ -24,6 +24,7 @@ install(
     src/publisher/box_publisher.py
     src/socket_mover/socket_mover.py
     src/moveit_mover/gripper_mover.py
+    src/moveit_mover/gripper_opener_with_zeroer.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
 
+# gripper_command true = sensing inaktiv
+# gripper_command false = offsetting und sensing aktiv
+
 # offsetten: node.reset_force_offset()
 # in code offsetten: self.reset_force_offset()
+
 
 import time
 import socket
@@ -33,7 +37,7 @@ class URCommand:
 
     def gripper_command(self, command):
         self.socket_gripper.sendall(command.encode('utf-8'))
-        print(f'Sent Gripper command: {command}')
+        #print(f'Sent Gripper command: {command}')
 
     def command_gripper(self, position, speed=255, force=255):
         if 0 <= position <= 255 and 0 <= speed <= 255 and 0 <= force <= 255:
@@ -69,20 +73,38 @@ class SocketControllerNode(Node):
         self.gripper_port = 63352
         self.ur_node = URCommand(self.robot_ip, self.robot_command_port, self.gripper_port)
         self.get_logger().info("Socket Mover Node initialized")
+
         # publisher für gripper-status
         self.status_publisher = self.create_publisher(Bool, '/gripper_done', 10)
+
         # Offsets für Kraft und Drehmoment
         self.force_offset = None
         self.torque_offset = None
+
         # Bool für Node aktivierung
         self.active_ = False
 
         # Subscriber für die Kraftsensor-Daten
         self.subscription = self.create_subscription(WrenchStamped,'/force_torque_sensor_broadcaster/wrench', self.force_callback, 10)
-        # Subscriber für den Gripper-Befehl
-        self.subscription2 = self.create_subscription(Bool, '/gripper_command', self.gripper_command_callback, 10)
 
-    def gripper_command_callback(self, bool_msg):
+        # Subscriber für den Gripper-Befehl
+        self.subscription2 = self.create_subscription(Bool, '/gripper_mover', self.gripper_mover_callback, 10)
+
+        # Subscriber für den Gripper-Zeroer
+        self.subscription3 = self.create_subscription(Bool, '/gripper_zeroer', self.gripper_zeroer_callback, 10)
+
+    def gripper_mover_callback(self, bool_msg):
+        # Extrahiere bool aus nachricht
+        gripper_state = bool_msg.data
+        if gripper_state:
+            self.get_logger().info(f"Opening gripper")
+            self.ur_node.command_gripper(0, speed=255, force=1)
+        else:
+            self.get_logger().info(f"Closing gripper")
+            self.ur_node.command_gripper(250, speed=255, force=1)           
+
+
+    def gripper_zeroer_callback(self, bool_msg):
         # Extrahiere bool aus nachricht
         self.active_ = bool_msg.data
         self.get_logger().info(f"Aktivitätsstatus: {'Aktiv' if self.active_ else 'Inaktiv'}")
@@ -105,16 +127,18 @@ class SocketControllerNode(Node):
         force_z = msg.wrench.force.z - self.force_offset.z
 
         # Nur wenn sich die Kraft von der Nullposition signifikant ändert, soll der Greifer öffnen
-        if abs(force_x) > 1 or abs(force_y) > 1 or abs(force_z) > 1:
+        if abs(force_x) > 3 or abs(force_y) > 3 or abs(force_z) > 3:
             self.get_logger().info("Force threshold exceeded, opening gripper.")
             self.ur_node.command_gripper(0, speed=255, force=1) # 0 = auf
             msg = Bool()
             msg.data = True
             self.status_publisher.publish(msg)
             self.get_logger().info("Gripper open.")
+            self.active_ = False
+
 
     def reset_force_offset(self):
-        """Setzt die Kraft- und Drehmomentwerte auf 0 zurück (zum Beispiel beim Zielerreichen)."""
+        """Setzt die Kraft- und Drehmomentwerte auf 0 zurück."""
         self.force_offset = None
         self.torque_offset = None
         self.get_logger().info("Kraftsensor-Offset wurde zurückgesetzt!")

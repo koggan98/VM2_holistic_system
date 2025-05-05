@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(PROGRAMS "src/hand_tracker/hand_tracker.py" "src/publisher/camera_publisher.py" "src/publisher/frame_publisher.py" "src/publisher/gesture_pose_publisher.py" "src/publisher/box_publisher.py" "src/socket_mover/socket_mover.py" "src/moveit_mover/gripper_mover.py" "DESTINATION" "lib/tracking_pkg")
-ament_cmake_symlink_install_programs("/home/daniel/vm2_holistic_system_ws/src/tracking_pkg" PROGRAMS "src/hand_tracker/hand_tracker.py" "src/publisher/camera_publisher.py" "src/publisher/frame_publisher.py" "src/publisher/gesture_pose_publisher.py" "src/publisher/box_publisher.py" "src/socket_mover/socket_mover.py" "src/moveit_mover/gripper_mover.py" "DESTINATION" "lib/tracking_pkg")
+# install(PROGRAMS "src/hand_tracker/hand_tracker.py" "src/publisher/camera_publisher.py" "src/publisher/frame_publisher.py" "src/publisher/gesture_pose_publisher.py" "src/publisher/box_publisher.py" "src/socket_mover/socket_mover.py" "src/moveit_mover/gripper_mover.py" "src/moveit_mover/gripper_opener_with_zeroer.py" "DESTINATION" "lib/tracking_pkg")
+ament_cmake_symlink_install_programs("/home/daniel/vm2_holistic_system_ws/src/tracking_pkg" PROGRAMS "src/hand_tracker/hand_tracker.py" "src/publisher/camera_publisher.py" "src/publisher/frame_publisher.py" "src/publisher/gesture_pose_publisher.py" "src/publisher/box_publisher.py" "src/socket_mover/socket_mover.py" "src/moveit_mover/gripper_mover.py" "src/moveit_mover/gripper_opener_with_zeroer.py" "DESTINATION" "lib/tracking_pkg")
 
 # install(DIRECTORY "launch" "DESTINATION" "share/tracking_pkg")
 ament_cmake_symlink_install_directory("/home/daniel/vm2_holistic_system_ws/src/tracking_pkg" DIRECTORY "launch" "DESTINATION" "share/tracking_pkg")
