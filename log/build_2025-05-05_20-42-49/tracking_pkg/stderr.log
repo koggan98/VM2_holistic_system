@@ -1,0 +1,9 @@
+[01m[K/home/daniel/vm2_holistic_system_ws/src/tracking_pkg/src/moveit_mover/loop_mover.cpp:72:35:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kbool HandPositionFollower::waiting_for_hand_pose_[m[K’
+   72 |     bool waiting_for_hand_pose_ = [01;31m[Kfalse[m[K;
+      |                                   [01;31m[K^~~~~[m[K
+[01m[K/home/daniel/vm2_holistic_system_ws/src/tracking_pkg/src/moveit_mover/loop_mover.cpp:69:10:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kbool HandPositionFollower::waiting_for_hand_pose_[m[K’
+   69 |     bool [01;36m[Kwaiting_for_hand_pose_[m[K = false;
+      |          [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/loop_mover.dir/build.make:76: CMakeFiles/loop_mover.dir/src/moveit_mover/loop_mover.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/loop_mover.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
