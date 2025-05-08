@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/vm2_holistic_system_ws/src/tracking_pkg
+CMAKE_SOURCE_DIR = /home/mir/VM2_holistic_system/src/tracking_pkg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
+CMAKE_BINARY_DIR = /home/mir/VM2_holistic_system/build/tracking_pkg
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/daniel/vm2_holistic_system_ws/build/tracking_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daniel/vm2_holistic_system_ws/src/tracking_pkg /home/daniel/vm2_holistic_system_ws/src/tracking_pkg /home/daniel/vm2_holistic_system_ws/build/tracking_pkg /home/daniel/vm2_holistic_system_ws/build/tracking_pkg /home/daniel/vm2_holistic_system_ws/build/tracking_pkg/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mir/VM2_holistic_system/build/tracking_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mir/VM2_holistic_system/src/tracking_pkg /home/mir/VM2_holistic_system/src/tracking_pkg /home/mir/VM2_holistic_system/build/tracking_pkg /home/mir/VM2_holistic_system/build/tracking_pkg /home/mir/VM2_holistic_system/build/tracking_pkg/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

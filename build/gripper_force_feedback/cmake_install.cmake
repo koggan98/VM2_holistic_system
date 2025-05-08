@@ -1,8 +1,8 @@
-# Install script for directory: /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback
+# Install script for directory: /home/mir/VM2_holistic_system/src/gripper_force_feedback
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/daniel/vm2_holistic_system_ws/install/gripper_force_feedback")
+  set(CMAKE_INSTALL_PREFIX "/home/mir/VM2_holistic_system/install/gripper_force_feedback")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/mir/VM2_holistic_system/build/gripper_force_feedback/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mir/VM2_holistic_system/build/gripper_force_feedback/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

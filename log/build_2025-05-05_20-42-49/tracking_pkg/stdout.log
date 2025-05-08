@@ -1,4 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target moveit_mover[0m
-[ 50%] Built target moveit_mover
-[35m[1mConsolidate compiler generated dependencies of target loop_mover[0m
-[ 75%] [32mBuilding CXX object CMakeFiles/loop_mover.dir/src/moveit_mover/loop_mover.cpp.o[0m

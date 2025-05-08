@@ -1,8 +1,8 @@
-# Install script for directory: /home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo
+# Install script for directory: /home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo")
+  set(CMAKE_INSTALL_PREFIX "/home/mir/VM2_holistic_system/install/ur_simulation_gazebo")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

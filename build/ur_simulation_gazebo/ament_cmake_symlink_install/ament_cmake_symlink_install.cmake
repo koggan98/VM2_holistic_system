@@ -23,7 +23,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
 
   # make destination absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/mir/VM2_holistic_system/install/ur_simulation_gazebo/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -123,7 +123,7 @@ function(ament_cmake_symlink_install_files cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/mir/VM2_holistic_system/install/ur_simulation_gazebo/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -181,7 +181,7 @@ function(ament_cmake_symlink_install_programs cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/mir/VM2_holistic_system/install/ur_simulation_gazebo/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -251,7 +251,7 @@ function(ament_cmake_symlink_install_targets)
 
     # make destination an absolute path and ensure that it exists
     if(NOT IS_ABSOLUTE "${destination}")
-      set(destination "/home/daniel/vm2_holistic_system_ws/install/ur_simulation_gazebo/${destination}")
+      set(destination "/home/mir/VM2_holistic_system/install/ur_simulation_gazebo/${destination}")
     endif()
     if(NOT EXISTS "${destination}")
       file(MAKE_DIRECTORY "${destination}")
@@ -311,46 +311,46 @@ message(STATUS "Execute custom install script")
 # begin of custom install code
 
 # install(DIRECTORY "config" "launch" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_directory("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" DIRECTORY "config" "launch" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_directory("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" DIRECTORY "config" "launch" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/ur_simulation_gazebo/environment")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/ur_simulation_gazebo/environment")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/ur_simulation_gazebo")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ur_simulation_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig.cmake" "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig-version.cmake" "DESTINATION" "share/ur_simulation_gazebo/cmake")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig.cmake" "/home/daniel/vm2_holistic_system_ws/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig-version.cmake" "DESTINATION" "share/ur_simulation_gazebo/cmake")
+# install(FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig.cmake" "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig-version.cmake" "DESTINATION" "share/ur_simulation_gazebo/cmake")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig.cmake" "/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig-version.cmake" "DESTINATION" "share/ur_simulation_gazebo/cmake")
 
-# install(FILES "/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/package.xml" "DESTINATION" "share/ur_simulation_gazebo")
-ament_cmake_symlink_install_files("/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/daniel/vm2_holistic_system_ws/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/package.xml" "DESTINATION" "share/ur_simulation_gazebo")
+# install(FILES "/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/package.xml" "DESTINATION" "share/ur_simulation_gazebo")
+ament_cmake_symlink_install_files("/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo" FILES "/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/package.xml" "DESTINATION" "share/ur_simulation_gazebo")

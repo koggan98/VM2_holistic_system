@@ -1,1 +1,1 @@
-/home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/ament_cmake_core/gripper_force_feedbackConfig-version.cmake
+/home/mir/VM2_holistic_system/build/gripper_force_feedback/ament_cmake_core/gripper_force_feedbackConfig-version.cmake

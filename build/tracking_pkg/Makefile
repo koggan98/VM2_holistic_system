@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/vm2_holistic_system_ws/src/tracking_pkg
+CMAKE_SOURCE_DIR = /home/mir/VM2_holistic_system/src/tracking_pkg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/vm2_holistic_system_ws/build/tracking_pkg
+CMAKE_BINARY_DIR = /home/mir/VM2_holistic_system/build/tracking_pkg
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/vm2_holistic_system_ws/build/tracking_pkg/CMakeFiles /home/daniel/vm2_holistic_system_ws/build/tracking_pkg//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mir/VM2_holistic_system/build/tracking_pkg/CMakeFiles /home/mir/VM2_holistic_system/build/tracking_pkg//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/vm2_holistic_system_ws/build/tracking_pkg/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mir/VM2_holistic_system/build/tracking_pkg/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

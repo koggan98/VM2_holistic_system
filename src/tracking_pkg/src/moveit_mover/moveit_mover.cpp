@@ -45,8 +45,8 @@ public:
 
         // Konfiguriere MoveIt Parameter
         move_group_->setPlanningTime(1.0);
-        move_group_->setMaxVelocityScalingFactor(0.4);
-        move_group_->setMaxAccelerationScalingFactor(0.1);
+        move_group_->setMaxVelocityScalingFactor(0.6);
+        move_group_->setMaxAccelerationScalingFactor(0.6);
 
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
     }

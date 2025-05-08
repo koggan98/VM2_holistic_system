@@ -1,8 +1,8 @@
-# Install script for directory: /home/daniel/vm2_holistic_system_ws/src/tracking_pkg
+# Install script for directory: /home/mir/VM2_holistic_system/src/tracking_pkg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/daniel/vm2_holistic_system_ws/install/tracking_pkg")
+  set(CMAKE_INSTALL_PREFIX "/home/mir/VM2_holistic_system/install/tracking_pkg")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/mir/VM2_holistic_system/build/tracking_pkg/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/daniel/vm2_holistic_system_ws/build/tracking_pkg/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mir/VM2_holistic_system/build/tracking_pkg/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

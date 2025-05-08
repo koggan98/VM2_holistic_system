@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback
+CMAKE_SOURCE_DIR = /home/mir/VM2_holistic_system/src/gripper_force_feedback
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback
+CMAKE_BINARY_DIR = /home/mir/VM2_holistic_system/build/gripper_force_feedback
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback /home/daniel/vm2_holistic_system_ws/src/gripper_force_feedback /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback /home/daniel/vm2_holistic_system_ws/build/gripper_force_feedback/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mir/VM2_holistic_system/build/gripper_force_feedback && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mir/VM2_holistic_system/src/gripper_force_feedback /home/mir/VM2_holistic_system/src/gripper_force_feedback /home/mir/VM2_holistic_system/build/gripper_force_feedback /home/mir/VM2_holistic_system/build/gripper_force_feedback /home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

@@ -1,6 +1,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <geometry_msgs/msg/pose.hpp>
+#include <std_msgs/msg/string.hpp>
 #include <Eigen/Dense>
 #include <thread> 
 #include <std_msgs/msg/bool.hpp>
@@ -32,7 +33,9 @@ public:
         // Gripper-Status abbonnieren
         gripper_done_sub_ = this->create_subscription<std_msgs::msg::Bool>("/gripper_done", 10,
         std::bind(&HandPositionFollower::gripperDoneCallback, this, std::placeholders::_1));
-
+        // tool_selection abbonieren
+        tool_selection_sub_ = this->create_subscription<std_msgs::msg::String>("/tool_selection", 10, 
+        std::bind(&HandPositionFollower::toolSelectionCallback, this, std::placeholders::_1));
 
         // Gripper mover publisher initialisieren
         gripper_mover_ = this->create_publisher<std_msgs::msg::Bool>("/gripper_mover", 10);
@@ -48,9 +51,6 @@ public:
             shared_from_this(), "ur_manipulator");
 
         // Konfiguriere MoveIt Parameter
-        move_group_->setPlanningTime(1.0);
-        move_group_->setMaxVelocityScalingFactor(0.4);
-        move_group_->setMaxAccelerationScalingFactor(0.1);
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
         
 
@@ -58,93 +58,96 @@ public:
         RCLCPP_INFO(this->get_logger(), "Opening gripper...");
         publishGripperMover(true);
         std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
-        moveToObjectPosition(0.4, 0.2, 0.27);
-
-        
-
-        // Fahre zur Startposition
-        //moveToObjectPosition();
-
-        // Gripper schließen (true)
-        //RCLCPP_INFO(this->get_logger(), "Closing gripper...");
-        //publishGripperCommand(true);
-        //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
-
-        // Über das Objekt fahren
-        //moveAboveObject();
     }
 
 private:
-    void handPositionCallback(const geometry_msgs::msg::Pose::SharedPtr msg) { // Plant bewegung wenn Handposition empfangen wird
-        // Zielpose definieren
-        geometry_msgs::msg::Pose above_pose;
-        double x_pos = msg->position.x;
-        double y_pos = msg->position.y;
-        double z_pos = msg->position.z;
-        RCLCPP_INFO(this->get_logger(), "Received hand position: x=%.3f, y=%.3f, z=%.3f", x_pos, y_pos, z_pos);
-        above_pose.position.x = x_pos - 0.2; 
-        above_pose.position.y = y_pos;
-        above_pose.position.z = z_pos + 0.25;
-        above_pose.orientation = msg->orientation;
-        // constraints definieren
-        moveit_msgs::msg::Constraints constraints;
-        // Elbow up constraints hinzufügen (elbow joint muss positiv sein)
-        moveit_msgs::msg::JointConstraint elbow_constraint;
-        elbow_constraint.joint_name = "elbow_joint"; //
-        elbow_constraint.position = 0.52;              // Zielposition (ca. 30°)
-        elbow_constraint.tolerance_above = 2.25;       // darf bis 3 rad also ca. 170° nach oben gehen
-        elbow_constraint.tolerance_below = 0.52;       // erlaubt nur positive Winkel > 0
-        elbow_constraint.weight = 1.0;
-        constraints.joint_constraints.push_back(elbow_constraint);
-        // Shoulder/base constraint zwischen -90° und 90°
-        moveit_msgs::msg::JointConstraint shoulder_constraint;
-        shoulder_constraint.joint_name = "shoulder_pan_joint"; // ggf. anpassen
-        shoulder_constraint.position = 0;                  
-        shoulder_constraint.tolerance_above = 1.57;            
-        shoulder_constraint.tolerance_below = -1.57;           
-        shoulder_constraint.weight = 1.0;
-        constraints.joint_constraints.push_back(shoulder_constraint);
-        // Constraint setzen
-        // move_group_->setPathConstraints(constraints);
-        // Zielpose setzen
-        move_group_->setPoseTarget(above_pose);
+    geometry_msgs::msg::Point pending_pick_position_;
+    geometry_msgs::msg::Pose last_hand_pose_;
+    bool hand_pose_received_ = false;
+    bool waiting_for_hand_pose_ = false;
+    bool waiting_for_gripper_done_ = false;
+
+    void handPositionCallback(const geometry_msgs::msg::Pose::SharedPtr msg) {
+        if (!waiting_for_hand_pose_) {
+            RCLCPP_INFO(this->get_logger(), "Ignoring hand pose – no pending command.");
+            return;
+        }
+    
+        last_hand_pose_ = *msg;
+        waiting_for_hand_pose_ = false;
+        hand_pose_received_ = true;
+    
+        RCLCPP_INFO(this->get_logger(), "Hand pose received, proceeding with handover.");
+        performHandoverToHandPose();
+    }
+    
+
+    void toolSelectionCallback(const std_msgs::msg::String::SharedPtr msg) {
+        std::string cmd = msg->data;
+    
+        if (cmd == "1") {
+            pending_pick_position_.x = -0.24;
+            pending_pick_position_.y = -0.2;
+            pending_pick_position_.z = 0.27;
+        } else if (cmd == "2") {
+            pending_pick_position_.x = -0.2;
+            pending_pick_position_.y = -0.2;
+            pending_pick_position_.z = 0.27;
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Unknown command: '%s'", cmd.c_str());
+            return;
+        }
+    
+        // Nach Tastendruck Objekt aufnehmen
+        moveToObjectPosition(
+            pending_pick_position_.x,
+            pending_pick_position_.y,
+            pending_pick_position_.z
+        );
+    
+        // Jetzt auf Handposition warten
+        waiting_for_hand_pose_ = true;
+        RCLCPP_INFO(this->get_logger(), "Waiting for hand pose...");
+    }
+
+
+    void performHandoverToHandPose() {
+        // Fahre über die Hand
+        geometry_msgs::msg::Pose target_pose = last_hand_pose_;
+        target_pose.position.x -= 0.2;
+        target_pose.position.z += 0.15;
+
+        move_group_->setPlanningTime(1.0);
+        move_group_->setMaxVelocityScalingFactor(0.5);
+        move_group_->setMaxAccelerationScalingFactor(0.5);
+        move_group_->setPoseTarget(target_pose);
         moveit::planning_interface::MoveGroupInterface::Plan plan;
-        
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-            RCLCPP_INFO(this->get_logger(), "Step 1: Moving above hand...");
+            RCLCPP_INFO(this->get_logger(), "Moving above hand...");
             move_group_->execute(plan);
         } else {
-            RCLCPP_ERROR(this->get_logger(), "Step 1 planning failed.");
+            RCLCPP_ERROR(this->get_logger(), "Planning to above hand failed.");
             return;
         }
         
-        // 2. Jetzt absenken zur eigentlichen Zielhöhe
-        geometry_msgs::msg::Pose target_pose = above_pose;
-        target_pose.position.z = z_pos + 0.15;
-        
-        move_group_->setPoseTarget(target_pose);
-        if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-            RCLCPP_INFO(this->get_logger(), "Step 2: Lowering to hand...");
-            move_group_->execute(plan);
-        
-            // Greiferaktivierung starten
-            RCLCPP_INFO(this->get_logger(), "Zeroing gripper after reaching target pose...");
-            publishGripperZeroer(true);
-            RCLCPP_INFO(this->get_logger(), "Waiting for feedback via /gripper_done...");
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Step 2 planning failed.");
-        }
+        // Öffne den Greifer über /gripper_zeroer
+        RCLCPP_INFO(this->get_logger(), "Activating gripper sensing...");
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        publishGripperZeroer(true);
+        waiting_for_gripper_done_ = true;
     }
 
+
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr tool_selection_sub_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr gripper_done_sub_; 
-    void gripperDoneCallback(const std_msgs::msg::Bool::SharedPtr msg) { // "Gripper wurde geöffnet, kann jetzt zurück zur Home-Position"
+    void gripperDoneCallback(const std_msgs::msg::Bool::SharedPtr msg) {
         if (msg->data) {
-            RCLCPP_INFO(this->get_logger(), "Force feedback disabled");
-            RCLCPP_INFO(this->get_logger(), "Gripper opened – will return to home in 0 second...");
-            std::this_thread::sleep_for(std::chrono::seconds(0));
+            RCLCPP_INFO(this->get_logger(), "Gripper opened, returning to home.");
             moveToHomePositionUsingJoints();
         }
-    }
+    }   
+    
+
 
     // Bewegung zur Home-Position über Joint-Winkel
     void moveToHomePositionUsingJoints() {
@@ -159,6 +162,9 @@ private:
         };
 
         // Setze Joint-Winkel als Ziel
+        move_group_->setPlanningTime(1.0);
+        move_group_->setMaxVelocityScalingFactor(1);
+        move_group_->setMaxAccelerationScalingFactor(1);
         move_group_->setJointValueTarget(home_joint_positions);
 
         // Bewegung planen und ausführen
@@ -184,7 +190,9 @@ private:
         object_pose.orientation.y = 0.0;
         object_pose.orientation.z = 0.0;
         object_pose.orientation.w = 0.0;
-    
+        move_group_->setPlanningTime(1.0);
+        move_group_->setMaxVelocityScalingFactor(1);
+        move_group_->setMaxAccelerationScalingFactor(1);
         move_group_->setPoseTarget(object_pose);
     
         moveit::planning_interface::MoveGroupInterface::Plan plan;
@@ -199,12 +207,15 @@ private:
         // 2. Greifer schließen
         RCLCPP_INFO(this->get_logger(), "Closing gripper on object...");
         publishGripperMover(false);
-        std::this_thread::sleep_for(std::chrono::seconds(1));  // optional kurze Wartezeit
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     
         // 3. Über das Objekt fahren (Z-Achse leicht anheben)
         geometry_msgs::msg::Pose lift_pose = object_pose;
         lift_pose.position.z += 0.05;  // 5 cm anheben
-    
+
+        move_group_->setPlanningTime(1.0);
+        move_group_->setMaxVelocityScalingFactor(1);
+        move_group_->setMaxAccelerationScalingFactor(1);
         move_group_->setPoseTarget(lift_pose);
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Lifting object...");
