@@ -1,0 +1,7 @@
+kraftwerte erhalten:		ros2 topic echo /force_torque_sensor_broadcaster/wrench
+
+greifer öffnen:			ros2 topic pub /gripper_mover std_msgs/msg/Bool "{data: true}"
+zeroer aktivieren: 		ros2 topic pub /gripper_zeroer std_msgs/msg/Bool "{data: true}"
+
+tool aufheben:			ros2 topic pub /tool_selection std_msgs/msg/String "data: '1'"
+

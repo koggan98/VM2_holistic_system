@@ -1,0 +1,34 @@
+screenshot : shift + strg + alt + r
+Restart : Alt + F2 -> r
+Create Venv : python3 -m venv venv
+Activate venv : in Ordner der venv -> source venv/bin/activate
+Deactivate venv : deactivate
+Lösche venv : rm -rf venv
+Liste der installierten libraries : pip list
+Liste als Liste exportieren : pip freeze > global_packages.txt
+pip libraries löschen : pip uninstall <paket1> <paket2> <paket3>
+pip liste löschen : xargs pip uninstall < global_packages.txt
+running Tailscale : sudo tailscale up
+Bildschirme wiederherstellen : sudo systemctl restart display-manager
+Öffne VSCode : code
+libraries aus txt installieren : pip install -r requirements.txt
+conda aktivieren : source ~/miniconda3/bin/activate -> conda activate openmmlab
+conda deaktivieren : conda deactivate 
+conda env erstellen : conda create --name myenv python=3.9 <- hier version spezifizieren
+Suchzeile in VSCode : CTRL+SHIFT+P 
+Python interpreter wechseln : Python: Select Interpreter
+ROS msgs zeigen: ros2 interface list (| grep ... wenn nötig)
+ROS msgs parameter zeigen: ros2 interface show geometry_msgs/msg/Pose
+ROS topic manuell : ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: -0.0, y: 0.3, z: 0.0}, orientation: {x: 1.0, y: 0.0, z: 0.0, w: 0.0}}'
+
+ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: -0.0, y: 0.6, z: 0.12}, orientation: {x: -0.891, y: 0.0, z: 0.0, w: 0.454}}' # waagerecht in y mit y -0.2 und z+0.15 offset
+
+ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: 0.6, y: 0.0, z: 0.12}, orientation: {x: 0.0, y: 0.891, z: 0.0, w: 0.454}}' # senkrecht in x
+
+ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: 0.6, y: 0.0, z: 0.12}, orientation: {x: 0.0, y: 0.454, z: 0.391, w: 0.800}}'
+
+
+# null grad um y zeigt nach oben?? 0,0,0,1
+# 90 grad zeigt weg (richtung positiv x) 0,0.707,0,0.707
+# 180 grad zeigt nach unten 0,1,0,0
+richtige ausrichtung mit korrekter rotation = -0.63, 0.63, -0.321, 0.321
