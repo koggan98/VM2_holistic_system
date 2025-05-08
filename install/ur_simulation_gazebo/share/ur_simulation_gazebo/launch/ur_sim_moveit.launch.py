@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/launch/ur_sim_moveit.launch.py

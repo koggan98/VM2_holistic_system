@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/src/tracking_pkg/src/hand_tracker/hand_tracker.py

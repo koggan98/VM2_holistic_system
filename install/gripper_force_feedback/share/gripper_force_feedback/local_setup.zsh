@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/ament_cmake_environment_hooks/local_setup.zsh

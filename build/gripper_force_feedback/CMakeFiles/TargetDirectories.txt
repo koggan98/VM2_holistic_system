@@ -1,9 +1,0 @@
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/uninstall.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/gripper_force_feedback_uninstall.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/test.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/edit_cache.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/rebuild_cache.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/list_install_components.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/install.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/install/local.dir
-/home/mir/VM2_holistic_system/build/gripper_force_feedback/CMakeFiles/install/strip.dir

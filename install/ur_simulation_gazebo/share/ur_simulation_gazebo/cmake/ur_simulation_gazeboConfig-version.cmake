@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/build/ur_simulation_gazebo/ament_cmake_core/ur_simulation_gazeboConfig-version.cmake

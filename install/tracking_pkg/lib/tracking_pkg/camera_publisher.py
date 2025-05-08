@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/src/tracking_pkg/src/publisher/camera_publisher.py

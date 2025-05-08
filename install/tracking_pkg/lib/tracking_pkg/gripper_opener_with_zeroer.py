@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/src/tracking_pkg/src/moveit_mover/gripper_opener_with_zeroer.py

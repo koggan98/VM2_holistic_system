@@ -1,1 +1,0 @@
-/home/mir/VM2_holistic_system/build/tracking_pkg/ament_cmake_environment_hooks/local_setup.bash
