@@ -153,18 +153,18 @@
   <link name="dummy_gripper_link">
     <visual>
       <geometry>
-        <cylinder length="0.15" radius="0.1"/>
+        <cylinder length="0.235" radius="0.1"/>
       </geometry>
-      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <origin xyz="0 0 0.118" rpy="0 0 0"/>
       <material name="gray">
         <color rgba="0.6 0.6 0.6 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.15" radius="0.1"/>
+        <cylinder length="0.235" radius="0.1"/>
       </geometry>
-      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <origin xyz="0 0 0.118" rpy="0 0 0"/>
     </collision>
   </link>
 
@@ -172,6 +172,16 @@
     <parent link="wrist_3_link"/>
     <child link="dummy_gripper_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+    
+  <!-- Greifer-Spitzen-Link (für MoveIt End-Effector) -->
+  <link name="gripper_tip_link">
+  </link>
+
+  <joint name="gripper_tip_joint" type="fixed">
+    <parent link="dummy_gripper_link"/> <!-- Mit dem existierenden Greifer verbinden -->
+    <child link="gripper_tip_link"/>
+    <origin xyz="0 0 0.235" rpy="0 0 0"/> <!-- 15cm Versatz in Z-Richtung -->
   </joint>
   
 </robot>

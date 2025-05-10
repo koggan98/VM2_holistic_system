@@ -42,7 +42,8 @@ public:
     void initializeMoveGroupInterface() {
         move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
             shared_from_this(), "ur_manipulator");
-
+        
+        move_group_->setEndEffectorLink("gripper_tip_link");
         // Konfiguriere MoveIt Parameter
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(0.6);
@@ -59,10 +60,10 @@ private:
         double y_pos = msg->position.y;
         double z_pos = msg->position.z;
         RCLCPP_INFO(this->get_logger(), "Received hand position: x=%.3f, y=%.3f, z=%.3f", x_pos, y_pos, z_pos);
-        // target_pose.position = msg->position;
-        target_pose.position.x = x_pos - 0.2; 
-        target_pose.position.y = y_pos;
-        target_pose.position.z = z_pos + 0.15;
+        target_pose.position = msg->position;
+        //target_pose.position.x = x_pos - 0.2; 
+        //target_pose.position.y = y_pos;
+        //target_pose.position.z = z_pos + 0.15;
         target_pose.orientation = msg->orientation;
 
         // constraints definieren

@@ -49,7 +49,8 @@ public:
     void initializeMoveGroupInterface() {
         move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
             shared_from_this(), "ur_manipulator");
-
+        move_group_->setEndEffectorLink("gripper_tip_link");
+    
         // Konfiguriere MoveIt Parameter
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
         
@@ -62,6 +63,7 @@ public:
 
 private:
     geometry_msgs::msg::Point pending_pick_position_;
+    geometry_msgs::msg::Quaternion tool_orientation_;
     geometry_msgs::msg::Pose last_hand_pose_;
     bool hand_pose_received_ = false;
     bool waiting_for_hand_pose_ = false;
@@ -88,11 +90,43 @@ private:
         if (cmd == "1") {
             pending_pick_position_.x = -0.24;
             pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.27;
+            pending_pick_position_.z = 0.05;
+            tool_orientation_.x = 1.0;
+            tool_orientation_.y = 0.0;
+            tool_orientation_.z = 0.0;
+            tool_orientation_.w = 0.0;
         } else if (cmd == "2") {
             pending_pick_position_.x = -0.2;
             pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.27;
+            pending_pick_position_.z = 0.01;
+            tool_orientation_.x = -0.63;
+            tool_orientation_.y = 0.63;
+            tool_orientation_.z = -0.321;
+            tool_orientation_.w = 0.321;
+        } else if (cmd == "3") {
+            pending_pick_position_.x = -0.2;
+            pending_pick_position_.y = -0.2;
+            pending_pick_position_.z = 0.1;
+            tool_orientation_.x = 0.0;
+            tool_orientation_.y = 1.0;
+            tool_orientation_.z = 0.0;
+            tool_orientation_.w = 0.0;
+        } else if (cmd == "4") {
+            pending_pick_position_.x = -0.2;
+            pending_pick_position_.y = -0.2;
+            pending_pick_position_.z = 0.1;
+            tool_orientation_.x = 0.0;
+            tool_orientation_.y = 1.0;
+            tool_orientation_.z = 1.0;
+            tool_orientation_.w = 0.0;
+        } else if (cmd == "5") {
+            pending_pick_position_.x = -0.2;
+            pending_pick_position_.y = -0.2;
+            pending_pick_position_.z = 0.1;
+            tool_orientation_.x = 0.0;
+            tool_orientation_.y = 0.0;
+            tool_orientation_.z = 0.0;
+            tool_orientation_.w = 1.0;
         } else {
             RCLCPP_WARN(this->get_logger(), "Unknown command: '%s'", cmd.c_str());
             return;
@@ -114,9 +148,7 @@ private:
     void performHandoverToHandPose() {
         // Fahre über die Hand
         geometry_msgs::msg::Pose target_pose = last_hand_pose_;
-        target_pose.position.x -= 0.2;
-        target_pose.position.z += 0.15;
-
+        target_pose.orientation = tool_orientation_;
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(0.5);
         move_group_->setMaxAccelerationScalingFactor(0.5);
@@ -154,10 +186,10 @@ private:
         // Definiere Joint-Winkel für die Home-Position
         std::vector<double> home_joint_positions = {
             0,    // Joint 1: 0°
-            -M_PI_2, // Joint 2: 90°
-            0.0,    // Joint 3: 0°
-            0.0,    // Joint 4: 0°
-            0.0,    // Joint 5: 0°
+            -2.443, // Joint 2: 90°
+            1.309,    // Joint 3: 0°
+            -1.222,    // Joint 4: 0°
+            -M_PI_2,    // Joint 5: 0°
             0.0     // Joint 6: 0°
         };
 
@@ -182,6 +214,7 @@ private:
         RCLCPP_INFO(this->get_logger(), "Moving to object at x=%.2f y=%.2f z=%.2f", x, y, z);
     
         // 1. Fahre zur Objektposition
+        publishGripperMover(true);
         geometry_msgs::msg::Pose object_pose;
         object_pose.position.x = x;
         object_pose.position.y = y;
@@ -223,6 +256,7 @@ private:
         } else {
             RCLCPP_ERROR(this->get_logger(), "Lift motion failed.");
         }
+        moveToHomePositionUsingJoints();
     }
 
     void publishGripperMover(bool close) {
