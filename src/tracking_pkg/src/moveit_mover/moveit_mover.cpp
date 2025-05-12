@@ -81,6 +81,10 @@ private:
         target_pose.position.y = y_pos;
         target_pose.position.z = z_pos;
         target_pose.orientation = msg->orientation;
+        target_pose.orientation.x = -0.63;
+        target_pose.orientation.y = 0.63;
+        target_pose.orientation.z = -0.321;
+        target_pose.orientation.w = 0.321;
         // constraints definieren
         moveit_msgs::msg::Constraints constraints;
         // Elbow up constraints hinzufügen (elbow joint muss positiv sein)
@@ -115,7 +119,7 @@ private:
             // Greiferaktivierung starten
             RCLCPP_INFO(this->get_logger(), "Zeroing gripper after reaching target pose...");
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
-            //publishGripperZeroer(true);
+            publishGripperZeroer(true);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             RCLCPP_INFO(this->get_logger(), "Waiting for feedback via /gripper_done...");
         } else {

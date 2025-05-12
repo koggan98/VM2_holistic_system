@@ -62,9 +62,11 @@ public:
     }
 
 private:
-    geometry_msgs::msg::Point pending_pick_position_;
+    geometry_msgs::msg::Point tool_position_;
     geometry_msgs::msg::Quaternion tool_orientation_;
-    geometry_msgs::msg::Pose last_hand_pose_;
+    geometry_msgs::msg::Quaternion handover_orientation_;
+    geometry_msgs::msg::Pose hand_pose_;
+    geometry_msgs::msg::Pose hand_pose_with_offset;
     bool hand_pose_received_ = false;
     bool waiting_for_hand_pose_ = false;
     bool waiting_for_gripper_done_ = false;
@@ -75,7 +77,7 @@ private:
             return;
         }
     
-        last_hand_pose_ = *msg;
+        hand_pose_ = *msg;
         waiting_for_hand_pose_ = false;
         hand_pose_received_ = true;
     
@@ -88,56 +90,76 @@ private:
         std::string cmd = msg->data;
     
         if (cmd == "1") { // Pinzette lang
-            pending_pick_position_.x = -0.2285;
-            pending_pick_position_.y = -0.19;
-            pending_pick_position_.z = 0.03;
-            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
-            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
-            tool_orientation_.x = -0.63;
-            tool_orientation_.y = 0.63;
-            tool_orientation_.z = -0.321;
-            tool_orientation_.w = 0.321;
-
+            tool_position_.x = -0.2285;
+            tool_position_.y = -0.19;
+            tool_position_.z = 0.03;
+            tool_orientation_.x = 1;
+            tool_orientation_.y = 0;
+            tool_orientation_.z = 0;
+            tool_orientation_.w = 0;
+            hand_pose_with_offset.position.x = hand_pose_.position.x - 0.05;
+            hand_pose_with_offset.position.y = hand_pose_.position.y;
+            hand_pose_with_offset.position.z = hand_pose_.position.z + 0.025;
+            handover_orientation_.x = -0.63;
+            handover_orientation_.y = 0.63;
+            handover_orientation_.z = -0.321;
+            handover_orientation_.w = 0.321;
         } else if (cmd == "2") { // Hammer
-            pending_pick_position_.x = -0.2035;
-            pending_pick_position_.y = -0.37;
-            pending_pick_position_.z = 0.03;
-            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
-            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
-            tool_orientation_.x = -0.63;
-            tool_orientation_.y = 0.63;
-            tool_orientation_.z = -0.321;
-            tool_orientation_.w = 0.321;
+            tool_position_.x = -0.2035;
+            tool_position_.y = -0.37;
+            tool_position_.z = 0.03;
+            tool_orientation_.x = 0;
+            tool_orientation_.y = 1;
+            tool_orientation_.z = 0;
+            tool_orientation_.w = 0;
+            hand_pose_with_offset.position.x = hand_pose_.position.x - 0.05;
+            hand_pose_with_offset.position.y = hand_pose_.position.y;
+            hand_pose_with_offset.position.z = hand_pose_.position.z + 0.05;
+            handover_orientation_.x = -0.63;
+            handover_orientation_.y = 0.63;
+            handover_orientation_.z = -0.321;
+            handover_orientation_.w = 0.321;
         } else if (cmd == "3") { // Schere lang
-            pending_pick_position_.x = -0.1785;
-            pending_pick_position_.y = -0.25;
-            pending_pick_position_.z = 0.032;
-            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
-            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
-            tool_orientation_.x = 0.0;
-            tool_orientation_.y = 0.454;
-            tool_orientation_.z = 0.391;
-            tool_orientation_.w = 0.800;
+            tool_position_.x = -0.1785;
+            tool_position_.y = -0.25;
+            tool_position_.z = 0.032;
+            tool_orientation_.x = 0;
+            tool_orientation_.y = 1;
+            tool_orientation_.z = 0;
+            tool_orientation_.w = 0;
+            hand_pose_with_offset.position.x = hand_pose_.position.x - 0.05;
+            hand_pose_with_offset.position.y = hand_pose_.position.y;
+            hand_pose_with_offset.position.z = hand_pose_.position.z + 0.05;
+            handover_orientation_.x = -0.63;
+            handover_orientation_.y = 0.63;
+            handover_orientation_.z = -0.321;
+            handover_orientation_.w = 0.321;
         } else if (cmd == "4") { // Schere kurz
-            pending_pick_position_.x = -0.1535;
-            pending_pick_position_.y = -0.36;
-            pending_pick_position_.z = 0.035;
-            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
-            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
-            tool_orientation_.x = -0.63;
-            tool_orientation_.y = 0.63;
-            tool_orientation_.z = -0.321;
-            tool_orientation_.w = 0.321;
+            tool_position_.x = -0.1535;
+            tool_position_.y = -0.36;
+            tool_position_.z = 0.035;
+            hand_pose_with_offset.position.x = hand_pose_.position.x - 0.05;
+            hand_pose_with_offset.position.y = hand_pose_.position.y;
+            hand_pose_with_offset.position.z = hand_pose_.position.z + 0.05;
+            handover_orientation_.x = 0.0;
+            handover_orientation_.y = 0.891;
+            handover_orientation_.z = 0.0;
+            handover_orientation_.w = 0.454;
         } else if (cmd == "5") { // Retraktor klein
-            pending_pick_position_.x = -0.14;
-            pending_pick_position_.y = -0.25;
-            pending_pick_position_.z = 0.026;
-            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
-            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
-            tool_orientation_.x = -0.63;
-            tool_orientation_.y = 0.63;
-            tool_orientation_.z = -0.321;
-            tool_orientation_.w = 0.321;
+            tool_position_.x = -0.14;
+            tool_position_.y = -0.25;
+            tool_position_.z = 0.026;
+            tool_orientation_.x = 1;
+            tool_orientation_.y = 0;
+            tool_orientation_.z = 0;
+            tool_orientation_.w = 0;
+            hand_pose_with_offset.position.x = hand_pose_.position.x - 0.05;
+            hand_pose_with_offset.position.y = hand_pose_.position.y;
+            hand_pose_with_offset.position.z = hand_pose_.position.z + 0.05;
+            handover_orientation_.x = -0.63;
+            handover_orientation_.y = 0.63;
+            handover_orientation_.z = -0.321;
+            handover_orientation_.w = 0.321;
         } else {
             RCLCPP_WARN(this->get_logger(), "Unknown command: '%s'", cmd.c_str());
             return;
@@ -145,9 +167,9 @@ private:
     
         // Nach Tastendruck Objekt aufnehmen
         moveToObjectPosition(
-            pending_pick_position_.x,
-            pending_pick_position_.y,
-            pending_pick_position_.z
+            tool_position_.x,
+            tool_position_.y,
+            tool_position_.z
         );
     
         // Jetzt auf Handposition warten
@@ -158,8 +180,8 @@ private:
 
     void performHandoverToHandPose() {
         // Fahre über die Hand
-        geometry_msgs::msg::Pose target_pose = last_hand_pose_;
-        target_pose.orientation = tool_orientation_;
+        geometry_msgs::msg::Pose target_pose = hand_pose_with_offset;
+        target_pose.orientation = handover_orientation_;
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(0.5);
         move_group_->setMaxAccelerationScalingFactor(0.5);
@@ -231,10 +253,7 @@ private:
         object_pose.position.x = x;
         object_pose.position.y = y;
         object_pose.position.z = z;
-        object_pose.orientation.x = 1.0;
-        object_pose.orientation.y = 0.0;
-        object_pose.orientation.z = 0.0;
-        object_pose.orientation.w = 0.0;
+        object_pose.orientation = tool_orientation_;
         geometry_msgs::msg::Pose lift_pose = object_pose;
         lift_pose.position.z += 0.1;
         move_group_->setPlanningTime(1.0);
