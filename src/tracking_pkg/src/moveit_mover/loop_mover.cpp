@@ -87,46 +87,57 @@ private:
     void toolSelectionCallback(const std_msgs::msg::String::SharedPtr msg) {
         std::string cmd = msg->data;
     
-        if (cmd == "1") {
-            pending_pick_position_.x = -0.24;
-            pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.05;
-            tool_orientation_.x = 1.0;
-            tool_orientation_.y = 0.0;
-            tool_orientation_.z = 0.0;
-            tool_orientation_.w = 0.0;
-        } else if (cmd == "2") {
-            pending_pick_position_.x = -0.2;
-            pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.01;
+        if (cmd == "1") { // Pinzette lang
+            pending_pick_position_.x = -0.2285;
+            pending_pick_position_.y = -0.19;
+            pending_pick_position_.z = 0.03;
+            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
+            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
             tool_orientation_.x = -0.63;
             tool_orientation_.y = 0.63;
             tool_orientation_.z = -0.321;
             tool_orientation_.w = 0.321;
-        } else if (cmd == "3") {
-            pending_pick_position_.x = -0.2;
-            pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.1;
+
+        } else if (cmd == "2") { // Hammer
+            pending_pick_position_.x = -0.2035;
+            pending_pick_position_.y = -0.37;
+            pending_pick_position_.z = 0.03;
+            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
+            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
+            tool_orientation_.x = -0.63;
+            tool_orientation_.y = 0.63;
+            tool_orientation_.z = -0.321;
+            tool_orientation_.w = 0.321;
+        } else if (cmd == "3") { // Schere lang
+            pending_pick_position_.x = -0.1785;
+            pending_pick_position_.y = -0.25;
+            pending_pick_position_.z = 0.032;
+            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
+            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
             tool_orientation_.x = 0.0;
-            tool_orientation_.y = 1.0;
-            tool_orientation_.z = 0.0;
-            tool_orientation_.w = 0.0;
-        } else if (cmd == "4") {
-            pending_pick_position_.x = -0.2;
-            pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.1;
-            tool_orientation_.x = 0.0;
-            tool_orientation_.y = 1.0;
-            tool_orientation_.z = 1.0;
-            tool_orientation_.w = 0.0;
-        } else if (cmd == "5") {
-            pending_pick_position_.x = -0.2;
-            pending_pick_position_.y = -0.2;
-            pending_pick_position_.z = 0.1;
-            tool_orientation_.x = 0.0;
-            tool_orientation_.y = 0.0;
-            tool_orientation_.z = 0.0;
-            tool_orientation_.w = 1.0;
+            tool_orientation_.y = 0.454;
+            tool_orientation_.z = 0.391;
+            tool_orientation_.w = 0.800;
+        } else if (cmd == "4") { // Schere kurz
+            pending_pick_position_.x = -0.1535;
+            pending_pick_position_.y = -0.36;
+            pending_pick_position_.z = 0.035;
+            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
+            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
+            tool_orientation_.x = -0.63;
+            tool_orientation_.y = 0.63;
+            tool_orientation_.z = -0.321;
+            tool_orientation_.w = 0.321;
+        } else if (cmd == "5") { // Retraktor klein
+            pending_pick_position_.x = -0.14;
+            pending_pick_position_.y = -0.25;
+            pending_pick_position_.z = 0.026;
+            last_hand_pose_.position.x = last_hand_pose_.position.x - 0.0;
+            last_hand_pose_.position.z = last_hand_pose_.position.z + 0.0;
+            tool_orientation_.x = -0.63;
+            tool_orientation_.y = 0.63;
+            tool_orientation_.z = -0.321;
+            tool_orientation_.w = 0.321;
         } else {
             RCLCPP_WARN(this->get_logger(), "Unknown command: '%s'", cmd.c_str());
             return;
@@ -167,6 +178,7 @@ private:
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         publishGripperZeroer(true);
         waiting_for_gripper_done_ = true;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 
 
@@ -186,9 +198,9 @@ private:
         // Definiere Joint-Winkel für die Home-Position
         std::vector<double> home_joint_positions = {
             0,    // Joint 1: 0°
-            -2.443, // Joint 2: 90°
-            1.309,    // Joint 3: 0°
-            -1.222,    // Joint 4: 0°
+            -2.486, // Joint 2: 90°
+            1.227,    // Joint 3: 0°
+            -1.294,    // Joint 4: 0°
             -M_PI_2,    // Joint 5: 0°
             0.0     // Joint 6: 0°
         };
@@ -213,7 +225,7 @@ private:
     void moveToObjectPosition(double x, double y, double z) {
         RCLCPP_INFO(this->get_logger(), "Moving to object at x=%.2f y=%.2f z=%.2f", x, y, z);
     
-        // 1. Fahre zur Objektposition
+        // Fahre über Werkzeug
         publishGripperMover(true);
         geometry_msgs::msg::Pose object_pose;
         object_pose.position.x = x;
@@ -223,12 +235,26 @@ private:
         object_pose.orientation.y = 0.0;
         object_pose.orientation.z = 0.0;
         object_pose.orientation.w = 0.0;
+        geometry_msgs::msg::Pose lift_pose = object_pose;
+        lift_pose.position.z += 0.1;
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(1);
         move_group_->setMaxAccelerationScalingFactor(1);
-        move_group_->setPoseTarget(object_pose);
-    
+        move_group_->setPoseTarget(lift_pose);
         moveit::planning_interface::MoveGroupInterface::Plan plan;
+        if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
+            RCLCPP_INFO(this->get_logger(), "Planning above object successful, executing...");
+            move_group_->execute(plan);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Planning above object failed.");
+            return;
+        }
+
+        // Senke auf Werkzeug ab
+        move_group_->setPlanningTime(1.0);
+        move_group_->setMaxVelocityScalingFactor(0.5);
+        move_group_->setMaxAccelerationScalingFactor(0.5);
+        move_group_->setPoseTarget(object_pose);
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Planning to object successful, executing...");
             move_group_->execute(plan);
@@ -237,18 +263,15 @@ private:
             return;
         }
     
-        // 2. Greifer schließen
+        // Greifer schließen
         RCLCPP_INFO(this->get_logger(), "Closing gripper on object...");
         publishGripperMover(false);
         std::this_thread::sleep_for(std::chrono::seconds(1));
     
-        // 3. Über das Objekt fahren (Z-Achse leicht anheben)
-        geometry_msgs::msg::Pose lift_pose = object_pose;
-        lift_pose.position.z += 0.05;  // 5 cm anheben
-
+        // Über Werkzeug fahren
         move_group_->setPlanningTime(1.0);
-        move_group_->setMaxVelocityScalingFactor(1);
-        move_group_->setMaxAccelerationScalingFactor(1);
+        move_group_->setMaxVelocityScalingFactor(0.5);
+        move_group_->setMaxAccelerationScalingFactor(0.5);
         move_group_->setPoseTarget(lift_pose);
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Lifting object...");

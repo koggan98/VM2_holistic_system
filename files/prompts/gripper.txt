@@ -5,3 +5,12 @@ zeroer aktivieren: 		ros2 topic pub /gripper_zeroer std_msgs/msg/Bool "{data: tr
 
 tool aufheben:			ros2 topic pub /tool_selection std_msgs/msg/String "data: '1'"
 
+
+bewegen:                ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: -0.0, y: 0.3, z: 0.0}, orientation: {x: 1.0, y: 0.0, z: 0.0, w: 0.0}}'
+
+                        ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: -0.0, y: 0.6, z: 0.12}, orientation: {x: -0.891, y: 0.0, z: 0.0, w: 0.454}}' # waagerecht in y mit y -0.2 und z+0.15 offset
+
+                        ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: 0.6, y: 0.0, z: 0.12}, orientation: {x: 0.0, y: 0.891, z: 0.0, w: 0.454}}' # senkrecht in x
+
+                        ros2 topic pub /hand_pose geometry_msgs/msg/Pose '{position: {x: 0.6, y: 0.0, z: 0.12}, orientation: {x: 0.0, y: 0.454, z: 0.391, w: 0.800}}'
+

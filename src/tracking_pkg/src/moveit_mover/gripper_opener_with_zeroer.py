@@ -99,7 +99,7 @@ class SocketControllerNode(Node):
         gripper_state = bool_msg.data
         if gripper_state:
             self.get_logger().info(f"Opening gripper")
-            self.ur_node.command_gripper(0, speed=255, force=1)
+            self.ur_node.command_gripper(200, speed=255, force=1)
         else:
             self.get_logger().info(f"Closing gripper")
             self.ur_node.command_gripper(250, speed=255, force=1)           
@@ -130,7 +130,7 @@ class SocketControllerNode(Node):
         # Nur wenn sich die Kraft von der Nullposition signifikant ändert, soll der Greifer öffnen
         if abs(force_x) > 1 or abs(force_y) > 1 or abs(force_z) > 1:
             self.get_logger().info("Force threshold exceeded, opening gripper.")
-            self.ur_node.command_gripper(0, speed=255, force=1) # 0 = auf
+            self.ur_node.command_gripper(200, speed=255, force=1) # 0 = auf, 255 = ganz zu
             msg = Bool()
             msg.data = True
             self.status_publisher.publish(msg)

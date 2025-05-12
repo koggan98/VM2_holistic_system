@@ -41,6 +41,10 @@ class RealSensePublisher(Node):
         # Jetzt publish_camera_info() aufrufen
         self.publish_camera_info()
 
+        # alignment initialisieren
+        self.align_to = rs.stream.color
+        self.align = rs.align(self.align_to)
+
         # Filter initialisieren
         self.decimation_filter = rs.decimation_filter()
         self.decimation_filter.set_option(rs.option.filter_magnitude, 2)
@@ -75,8 +79,10 @@ class RealSensePublisher(Node):
     def publish_images(self):
         
         frames = self.pipeline.wait_for_frames()
-        depth_frame = frames.get_depth_frame()
-        color_frame = frames.get_color_frame()
+        aligned_frames = self.align.process(frames)  # Hier passiert das Alignment
+
+        depth_frame = aligned_frames.get_depth_frame()
+        color_frame = aligned_frames.get_color_frame()
 
         # Filter anwenden
         if depth_frame:
