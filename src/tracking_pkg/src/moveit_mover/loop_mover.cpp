@@ -6,6 +6,7 @@
 #include <thread> 
 #include <std_msgs/msg/bool.hpp>
 
+// mit ros2 topic pub /tool_selection std_msgs/msg/String "data: '0'" resetten, 1-5 sind werkzeuge
 
 // gripper_mover true = gripper open
 // gripper_mover false = gripper close
@@ -54,7 +55,7 @@ public:
         // Konfiguriere MoveIt Parameter
         RCLCPP_INFO(this->get_logger(), "MoveGroupInterface initialized.");
         
-
+        moveToHomePositionUsingJoints();
         // Gripper öffnen (false)
         RCLCPP_INFO(this->get_logger(), "Opening gripper...");
         publishGripperMover(true);
@@ -67,22 +68,25 @@ private:
     geometry_msgs::msg::Quaternion handover_orientation_;
     geometry_msgs::msg::Pose hand_pose_;
     geometry_msgs::msg::Pose hand_pose_with_offset;
+    geometry_msgs::msg::Vector3 hand_offset_;
     bool hand_pose_received_ = false;
     bool waiting_for_hand_pose_ = false;
     bool waiting_for_gripper_done_ = false;
+    bool tool_has_been_picked_up_ = false;
 
     void handPositionCallback(const geometry_msgs::msg::Pose::SharedPtr msg) {
-        hand_pose_ = *msg;
-        RCLCPP_INFO(this->get_logger(), "Received hand pose: x=%.2f y=%.2f z=%.2f", 
-                    hand_pose_.position.x, hand_pose_.position.y, hand_pose_.position.z);
-    
-        if (!waiting_for_hand_pose_) {
-            RCLCPP_INFO(this->get_logger(), "Ignoring hand pose – no pending command.");
+        if (!waiting_for_hand_pose_ || !tool_has_been_picked_up_) {
+            RCLCPP_INFO(this->get_logger(), "Ignoring hand pose – not waiting.");
             return;
-        }
-    
+        }    
+
+        hand_pose_ = *msg;  
         hand_pose_with_offset = *msg;
-        hand_pose_with_offset.position.z += 0.05;
+        //hand_pose_with_offset.position.z += 0.05;
+        hand_pose_with_offset.position.x += hand_offset_.x;
+        hand_pose_with_offset.position.y += hand_offset_.y;
+        hand_pose_with_offset.position.z += hand_offset_.z;
+        RCLCPP_INFO(this->get_logger(), "Hand pose received, proceeding with handover...");
         performHandoverToHandPose();
     }
     
@@ -90,8 +94,30 @@ private:
 
     void toolSelectionCallback(const std_msgs::msg::String::SharedPtr msg) {
         std::string cmd = msg->data;
+
+        if (cmd == "0") {
+            RCLCPP_WARN(this->get_logger(), "RESETTING SYSTEM STATE MANUALLY.");
+            // Flags zurücksetzen
+            hand_pose_received_ = false;
+            waiting_for_hand_pose_ = false;
+            waiting_for_gripper_done_ = false;
+            tool_has_been_picked_up_ = false;
+
+            // Gripper öffnen
+            publishGripperMover(true);
+        
+            // Gripper-Zeroer deaktivieren
+            publishGripperZeroer(false);
+
+            moveToHomePositionUsingJoints();
+                
+            RCLCPP_INFO(this->get_logger(), "System reset complete.");
+            return;
     
-        if (cmd == "1") { // Pinzette lang
+        } else if (waiting_for_hand_pose_) {
+            RCLCPP_WARN(this->get_logger(), "Already waiting for hand pose – ignoring tool command.");
+            return;
+        } else if (cmd == "1") { // Pinzette lang
             tool_position_.x = -0.2285;
             tool_position_.y = -0.19;
             tool_position_.z = 0.03;
@@ -99,9 +125,9 @@ private:
             tool_orientation_.y = 0;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_pose_with_offset.position.x = hand_pose_.position.x;
-            hand_pose_with_offset.position.y = hand_pose_.position.y;
-            hand_pose_with_offset.position.z = hand_pose_.position.z;
+            hand_offset_.x = -0.05;
+            hand_offset_.y = 0.0;
+            hand_offset_.z = 0.05;
             handover_orientation_.x = -0.63;
             handover_orientation_.y = 0.63;
             handover_orientation_.z = -0.321;
@@ -114,9 +140,9 @@ private:
             tool_orientation_.y = 1;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_pose_with_offset.position.x = hand_pose_.position.x;
-            hand_pose_with_offset.position.y = hand_pose_.position.y;
-            hand_pose_with_offset.position.z = hand_pose_.position.z;
+            hand_offset_.x = 0.00;
+            hand_offset_.y = 0.0;
+            hand_offset_.z = 0.05;
             handover_orientation_.x = -0.63;
             handover_orientation_.y = 0.63;
             handover_orientation_.z = -0.321;
@@ -129,9 +155,9 @@ private:
             tool_orientation_.y = 1;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_pose_with_offset.position.x = hand_pose_.position.x;
-            hand_pose_with_offset.position.y = hand_pose_.position.y;
-            hand_pose_with_offset.position.z = hand_pose_.position.z;
+            hand_offset_.x = 0.00;
+            hand_offset_.y = 0.0;
+            hand_offset_.z = 0.05;
             handover_orientation_.x = -0.63;
             handover_orientation_.y = 0.63;
             handover_orientation_.z = -0.321;
@@ -140,9 +166,9 @@ private:
             tool_position_.x = -0.1535;
             tool_position_.y = -0.36;
             tool_position_.z = 0.035;
-            hand_pose_with_offset.position.x = hand_pose_.position.x;
-            hand_pose_with_offset.position.y = hand_pose_.position.y;
-            hand_pose_with_offset.position.z = hand_pose_.position.z;
+            hand_offset_.x = 0.00;
+            hand_offset_.y = 0.0;
+            hand_offset_.z = 0.05;
             handover_orientation_.x = 0.0;
             handover_orientation_.y = 0.891;
             handover_orientation_.z = 0.0;
@@ -155,9 +181,9 @@ private:
             tool_orientation_.y = 0;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_pose_with_offset.position.x = hand_pose_.position.x;
-            hand_pose_with_offset.position.y = hand_pose_.position.y;
-            hand_pose_with_offset.position.z = hand_pose_.position.z;
+            hand_offset_.x = 0.00;
+            hand_offset_.y = 0.0;
+            hand_offset_.z = 0.05;
             handover_orientation_.x = -0.63;
             handover_orientation_.y = 0.63;
             handover_orientation_.z = -0.321;
@@ -175,7 +201,6 @@ private:
         );
     
         // Jetzt auf Handposition warten
-        waiting_for_hand_pose_ = true;
         RCLCPP_INFO(this->get_logger(), "Waiting for hand pose...");
     }
 
@@ -196,17 +221,19 @@ private:
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Moving above hand...");
             move_group_->execute(plan);
+            waiting_for_hand_pose_ = false;
+            // Öffne den Greifer über /gripper_zeroer
+            RCLCPP_INFO(this->get_logger(), "Activating gripper sensing...");
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            publishGripperZeroer(true);
+            waiting_for_gripper_done_ = true;
+            hand_pose_received_ = true;
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         } else {
             RCLCPP_ERROR(this->get_logger(), "Planning to above hand failed.");
             return;
         }
-        
-        // Öffne den Greifer über /gripper_zeroer
-        RCLCPP_INFO(this->get_logger(), "Activating gripper sensing...");
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        publishGripperZeroer(true);
-        waiting_for_gripper_done_ = true;
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
     }
 
 
@@ -216,6 +243,11 @@ private:
         if (msg->data) {
             RCLCPP_INFO(this->get_logger(), "Gripper opened, returning to home.");
             moveToHomePositionUsingJoints();
+            // Reset
+            hand_pose_received_ = false;
+            waiting_for_hand_pose_ = false;
+            tool_has_been_picked_up_ = false;
+            RCLCPP_INFO(this->get_logger(), "Ready for next tool command.");
         }
     }   
     
@@ -292,6 +324,7 @@ private:
         RCLCPP_INFO(this->get_logger(), "Closing gripper on object...");
         publishGripperMover(false);
         std::this_thread::sleep_for(std::chrono::seconds(1));
+        tool_has_been_picked_up_ = true;
     
         // Über Werkzeug fahren
         move_group_->setPlanningTime(1.0);
@@ -301,10 +334,11 @@ private:
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Lifting object...");
             move_group_->execute(plan);
+            waiting_for_hand_pose_ = true;
+            moveToHomePositionUsingJoints();
         } else {
             RCLCPP_ERROR(this->get_logger(), "Lift motion failed.");
         }
-        moveToHomePositionUsingJoints();
     }
 
     void publishGripperMover(bool close) {

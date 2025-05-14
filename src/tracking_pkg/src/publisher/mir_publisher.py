@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from moveit_msgs.msg import CollisionObject
@@ -8,40 +10,37 @@ import trimesh
 import os
 import math
 from transforms3d.euler import euler2quat
+from ament_index_python.packages import get_package_share_directory
 
 class AddSTLObject(Node):
     def __init__(self):
         super().__init__('add_stl_object')
         self.publisher = self.create_publisher(CollisionObject, '/collision_object', 10)
 
-        # Path to the STL file
-        stl_file_path = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), 
-            "collisionObjects", 
-            "stls", 
-            "base_link.STL"
-        )
+        pkg_share = get_package_share_directory('tracking_pkg')
+        stl_file_path = os.path.join(pkg_share, 'collisionObjects', 'stls', 'base_link.STL')
+        
         self.get_logger().info(f"Loading STL from: {stl_file_path}")
 
         # Load STL file
-        table_mesh = self.load_stl_as_ros_mesh(stl_file_path)
+        mir_mesh = self.load_stl_as_ros_mesh(stl_file_path)
 
         # Create pose with 90° rotation around Z-axis
-        table_pose = Pose()
-        table_pose.position.x = 0.0
-        table_pose.position.y = 0.0 
-        table_pose.position.z = -1.03/2 + 0.06
+        mir_pose = Pose()
+        mir_pose.position.x = 0.0
+        mir_pose.position.y = 0.0 
+        mir_pose.position.z = -1.03/2 + 0.06
         
         # 90° rotation around Z-axis (π/2 radians)
         q = euler2quat(0, 0, 0)  # (roll=0, pitch=0, yaw=90°)
-        table_pose.orientation = Quaternion(x=q[1], y=q[2], z=q[3], w=q[0])
+        mir_pose.orientation = Quaternion(x=q[1], y=q[2], z=q[3], w=q[0])
 
         # Create CollisionObject
         collision_object = CollisionObject()
-        collision_object.id = "table"
+        collision_object.id = "mir"
         collision_object.header = Header(frame_id="world")
-        collision_object.meshes.append(table_mesh)
-        collision_object.mesh_poses.append(table_pose)
+        collision_object.meshes.append(mir_mesh)
+        collision_object.mesh_poses.append(mir_pose)
         collision_object.operation = CollisionObject.ADD
 
         self.publisher.publish(collision_object)

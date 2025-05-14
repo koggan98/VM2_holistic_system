@@ -21,7 +21,7 @@ install(
     src/publisher/camera_publisher.py
     src/publisher/frame_publisher.py
     src/publisher/gesture_pose_publisher.py
-    src/publisher/box_publisher.py
+    src/publisher/mir_publisher.py
     src/socket_mover/socket_mover.py
     src/moveit_mover/gripper_mover.py
     src/moveit_mover/gripper_opener_with_zeroer.py
@@ -51,6 +51,12 @@ install(TARGETS moveit_mover
 install(TARGETS loop_mover
   DESTINATION lib/${PROJECT_NAME}
 )
+
+install(
+  DIRECTORY src/publisher/collisionObjects
+  DESTINATION share/${PROJECT_NAME}
+)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

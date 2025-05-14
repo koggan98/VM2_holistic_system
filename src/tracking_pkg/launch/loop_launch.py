@@ -28,12 +28,12 @@ def generate_launch_description():
             name='hand_tracker',
             output='screen'
         ),
- #       Node(
-  #          package='tracking_pkg',
-   #         executable='box_publisher.py', 
-    #        name='box_publisher',
-     #       output='screen'
-      #  ),
+        Node(
+            package='tracking_pkg',
+            executable='mir_publisher.py', 
+            name='mir_publisher',
+            output='screen'
+       ),
         Node(
             package='tracking_pkg',
             executable='gripper_opener_with_zeroer.py', 
