@@ -46,7 +46,7 @@ bei network bei dem port -> einstellungen -> IPv4 -> shared to other computers
 bei ifconfig nach IP suchen enp47s0 oder enp46s0 (10.42.0.1 z.B.)
 auf teachpad in den netzwerkeinstellungen IP adresse angeben mit der IP vom pc +1 am ende (10.42.0.2 z.B)
 Subnetzmaske: 255.255.255.0
-Standard Gatewa: 0.0.0.0
+Standard Gateway: 0.0.0.0
 Bevorzugter DNS-Server: gleiches wie PC (10.42.0.1 z.B.)
 Ros driver mit IP vom roboter (z.B. 10.42.0.2) verbinden
 

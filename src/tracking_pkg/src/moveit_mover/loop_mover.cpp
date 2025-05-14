@@ -72,18 +72,20 @@ private:
     bool waiting_for_gripper_done_ = false;
 
     void handPositionCallback(const geometry_msgs::msg::Pose::SharedPtr msg) {
+        hand_pose_ = *msg;
+        RCLCPP_INFO(this->get_logger(), "Received hand pose: x=%.2f y=%.2f z=%.2f", 
+                    hand_pose_.position.x, hand_pose_.position.y, hand_pose_.position.z);
+    
         if (!waiting_for_hand_pose_) {
             RCLCPP_INFO(this->get_logger(), "Ignoring hand pose – no pending command.");
             return;
         }
     
-        hand_pose_ = *msg;
-        waiting_for_hand_pose_ = false;
-        hand_pose_received_ = true;
-    
-        RCLCPP_INFO(this->get_logger(), "Hand pose received, proceeding with handover.");
+        hand_pose_with_offset = *msg;
+        hand_pose_with_offset.position.z += 0.05;
         performHandoverToHandPose();
     }
+    
     
 
     void toolSelectionCallback(const std_msgs::msg::String::SharedPtr msg) {
@@ -186,6 +188,10 @@ private:
         move_group_->setMaxVelocityScalingFactor(0.5);
         move_group_->setMaxAccelerationScalingFactor(0.5);
         move_group_->setPoseTarget(target_pose);
+        RCLCPP_INFO(this->get_logger(), "Target for handover: x=%.2f y=%.2f z=%.2f", 
+            target_pose.position.x, 
+            target_pose.position.y, 
+            target_pose.position.z);
         moveit::planning_interface::MoveGroupInterface::Plan plan;
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
             RCLCPP_INFO(this->get_logger(), "Moving above hand...");
