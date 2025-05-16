@@ -30,17 +30,10 @@ def generate_launch_description():
         ),
         Node(
             package='tracking_pkg',
-            executable='mir_publisher.py', 
-            name='mir_publisher',
-            output='screen'
-       ),
-        Node(
-            package='tracking_pkg',
             executable='gripper_opener_with_zeroer.py', 
             name='gripper_opener_with_zeroer',
             output='screen'
         ),
-        
         # Verzögerter Start der Node um 5 Sekunden
         TimerAction(
             period=5.0,  # Verzögerung in Sekunden
@@ -50,6 +43,18 @@ def generate_launch_description():
                 executable='loop_mover', 
                 name='loop_mover',
                 output='screen'
+                )
+            ]
+        ),
+        # Verzögerter Start der Node um 5 Sekunden
+        TimerAction(
+            period=5.0,  # Verzögerung in Sekunden
+            actions=[
+                Node(
+            package='tracking_pkg',
+            executable='mir_publisher.py', 
+            name='mir_publisher',
+            output='screen'
                 )
             ]
         )

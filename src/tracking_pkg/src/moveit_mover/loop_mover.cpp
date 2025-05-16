@@ -59,7 +59,6 @@ public:
         // Gripper öffnen (false)
         RCLCPP_INFO(this->get_logger(), "Opening gripper...");
         publishGripperMover(true);
-        std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
     }
 
 private:
@@ -82,7 +81,6 @@ private:
 
         hand_pose_ = *msg;  
         hand_pose_with_offset = *msg;
-        //hand_pose_with_offset.position.z += 0.05;
         hand_pose_with_offset.position.x += hand_offset_.x;
         hand_pose_with_offset.position.y += hand_offset_.y;
         hand_pose_with_offset.position.z += hand_offset_.z;
@@ -90,8 +88,6 @@ private:
         performHandoverToHandPose();
     }
     
-    
-
     void toolSelectionCallback(const std_msgs::msg::String::SharedPtr msg) {
         std::string cmd = msg->data;
 
@@ -105,10 +101,9 @@ private:
 
             // Gripper öffnen
             publishGripperMover(true);
-        
             // Gripper-Zeroer deaktivieren
             publishGripperZeroer(false);
-
+            // Zu Home fahren
             moveToHomePositionUsingJoints();
                 
             RCLCPP_INFO(this->get_logger(), "System reset complete.");
@@ -204,7 +199,6 @@ private:
         RCLCPP_INFO(this->get_logger(), "Waiting for hand pose...");
     }
 
-
     void performHandoverToHandPose() {
         // Fahre über die Hand
         geometry_msgs::msg::Pose target_pose = hand_pose_with_offset;
@@ -224,18 +218,15 @@ private:
             waiting_for_hand_pose_ = false;
             // Öffne den Greifer über /gripper_zeroer
             RCLCPP_INFO(this->get_logger(), "Activating gripper sensing...");
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
             publishGripperZeroer(true);
             waiting_for_gripper_done_ = true;
             hand_pose_received_ = true;
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         } else {
             RCLCPP_ERROR(this->get_logger(), "Planning to above hand failed.");
             return;
         }
-
     }
-
 
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr tool_selection_sub_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr gripper_done_sub_; 
@@ -251,8 +242,6 @@ private:
         }
     }   
     
-
-
     // Bewegung zur Home-Position über Joint-Winkel
     void moveToHomePositionUsingJoints() {
         // Definiere Joint-Winkel für die Home-Position
@@ -264,7 +253,6 @@ private:
             -M_PI_2,    // Joint 5: 0°
             0.0     // Joint 6: 0°
         };
-
         // Setze Joint-Winkel als Ziel
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(1);
@@ -281,10 +269,8 @@ private:
         }
     }
 
-
     void moveToObjectPosition(double x, double y, double z) {
         RCLCPP_INFO(this->get_logger(), "Moving to object at x=%.2f y=%.2f z=%.2f", x, y, z);
-    
         // Fahre über Werkzeug
         publishGripperMover(true);
         geometry_msgs::msg::Pose object_pose;
@@ -306,7 +292,6 @@ private:
             RCLCPP_ERROR(this->get_logger(), "Planning above object failed.");
             return;
         }
-
         // Senke auf Werkzeug ab
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(0.5);
@@ -319,13 +304,11 @@ private:
             RCLCPP_ERROR(this->get_logger(), "Planning to object failed.");
             return;
         }
-    
         // Greifer schließen
         RCLCPP_INFO(this->get_logger(), "Closing gripper on object...");
         publishGripperMover(false);
         std::this_thread::sleep_for(std::chrono::seconds(1));
         tool_has_been_picked_up_ = true;
-    
         // Über Werkzeug fahren
         move_group_->setPlanningTime(1.0);
         move_group_->setMaxVelocityScalingFactor(0.5);
@@ -367,14 +350,11 @@ private:
 int main(int argc, char** argv) {
     // ROS 2 initialisieren
     rclcpp::init(argc, argv);
-
     // Node erstellen und MoveGroupInterface initialisieren
     auto node = std::make_shared<HandPositionFollower>();
     node->initializeMoveGroupInterface();
-
     // Node ausführen
     rclcpp::spin(node);
-
     // ROS 2 beenden
     rclcpp::shutdown();
     return 0;

@@ -128,7 +128,7 @@ class SocketControllerNode(Node):
         force_z = msg.wrench.force.z - self.force_offset.z
 
         # Nur wenn sich die Kraft von der Nullposition signifikant ändert, soll der Greifer öffnen
-        if abs(force_x) > 3 or abs(force_y) > 3 or abs(force_z) > 3:
+        if abs(force_x) > 2 or abs(force_y) > 2 or abs(force_z) > 2:
             self.get_logger().info("Force threshold exceeded, opening gripper.")
             self.ur_node.command_gripper(150, speed=255, force=1) # 0 = auf, 255 = ganz zu
             msg = Bool()
