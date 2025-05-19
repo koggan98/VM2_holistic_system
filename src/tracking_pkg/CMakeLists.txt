@@ -22,6 +22,7 @@ install(
     src/publisher/frame_publisher.py
     src/publisher/gesture_pose_publisher.py
     src/publisher/mir_publisher.py
+    src/publisher/joint_states_publisher.py
     src/publisher/tool_selection.py
     src/socket_mover/socket_mover.py
     src/moveit_mover/gripper_mover.py

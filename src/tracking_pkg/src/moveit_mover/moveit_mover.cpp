@@ -32,12 +32,18 @@ public:
         // Gripper-Status abbonnieren
         gripper_done_sub_ = this->create_subscription<std_msgs::msg::Bool>("/gripper_done", 10,
         std::bind(&HandPositionFollower::gripperDoneCallback, this, std::placeholders::_1));
+        // joint_state_buffered abbonieren
+        joint_state_buffered_sub_ = this->create_subscription<sensor_msgs::msg::JointState>("/joint_state_buffered", 10,
+        std::bind(&HandPositionFollower::jointStateBufferedCallback, this, std::placeholders::_1));
+
 
 
         // Gripper mover publisher initialisieren
         gripper_mover_ = this->create_publisher<std_msgs::msg::Bool>("/gripper_mover", 10);
         // Gripper zeroer publisher initialisieren
         gripper_zeroer_ = this->create_publisher<std_msgs::msg::Bool>("/gripper_zeroer", 10);
+        // request_joint_state publisher initialisieren
+        request_joint_state = this->create_publisher<std_msgs::msg::Bool>("/request_joint_state", 10);
 
         RCLCPP_INFO(this->get_logger(), "Moveit Mover Node initialized.");
     }
@@ -52,6 +58,9 @@ public:
         // Gripper öffnen (false)
         RCLCPP_INFO(this->get_logger(), "Opening gripper...");
         publishGripperMover(false);
+        moveToModifiedJoints();
+
+
         //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
         //moveToObjectPosition(0.4, 0.2, 0.27);
 
@@ -81,10 +90,16 @@ private:
         target_pose.position.y = y_pos;
         target_pose.position.z = z_pos;
         target_pose.orientation = msg->orientation;
-        target_pose.orientation.x = -0.63;
-        target_pose.orientation.y = 0.63;
-        target_pose.orientation.z = -0.321;
-        target_pose.orientation.w = 0.321;
+        //target_pose.orientation.x = -0.63;
+        //target_pose.orientation.y = 0.63;
+        //target_pose.orientation.z = -0.321;
+        //target_pose.orientation.w = 0.321;
+        
+        //target_pose.orientation.x = 1;
+        //target_pose.orientation.y = 0;
+        //target_pose.orientation.z = 0;
+        //target_pose.orientation.w = 0;
+
         // constraints definieren
         moveit_msgs::msg::Constraints constraints;
         // Elbow up constraints hinzufügen (elbow joint muss positiv sein)
@@ -133,8 +148,8 @@ private:
             RCLCPP_INFO(this->get_logger(), "Force feedback disabled");
             RCLCPP_INFO(this->get_logger(), "Gripper opened – will return to home in 0 second...");
             std::this_thread::sleep_for(std::chrono::seconds(0));
-            moveToHomePositionUsingJoints();
-            publishGripperMover(false);
+            //moveToHomePositionUsingJoints();
+            //publishGripperMover(false);
         }
     }
 
@@ -159,17 +174,88 @@ private:
         // Bewegung planen und ausführen
         moveit::planning_interface::MoveGroupInterface::Plan plan;
         if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-            RCLCPP_INFO(this->get_logger(), "Planning to Home-Position (Joints) successful, executing...");
+            RCLCPP_INFO(this->get_logger(), "Planning to Home-Position successful, executing...");
             move_group_->execute(plan);
         } else {
-            RCLCPP_ERROR(this->get_logger(), "Planning to Home-Position (Joints) failed.");
+            RCLCPP_ERROR(this->get_logger(), "Planning to Home-Position failed.");
+        }
+    }
+
+    sensor_msgs::msg::JointState latest_joint_state_;
+    bool received_joint_state_ = false;
+
+    void jointStateBufferedCallback(const sensor_msgs::msg::JointState::SharedPtr msg) {
+    latest_joint_state_ = *msg;
+    received_joint_state_ = true;
+    RCLCPP_INFO(this->get_logger(), "Received joint_state from Python relay.");
+    }
+
+    void moveToModifiedJoints() {
+        received_joint_state_ = false;
+        publishRequestJointState(true);
+        RCLCPP_INFO(this->get_logger(), "Published joint state request.");
+
+        // Starte eigenen Thread für Wartezeit, um Callback nicht zu blockieren
+        std::thread([this]() {
+            int retries = 0;
+            while (!received_joint_state_ && rclcpp::ok() && retries < 30) {
+                rclcpp::sleep_for(std::chrono::milliseconds(100));
+                RCLCPP_WARN(this->get_logger(), "Waiting for joint state... (%d)", retries);
+                retries++;
+            }
+            if (!received_joint_state_) {
+                RCLCPP_ERROR(this->get_logger(), "Still no joint state received.");
+                return;
+            }
+            this->planAndExecuteFromBufferedState();
+        }).detach();
+    }
+
+    void planAndExecuteFromBufferedState() {
+        // Map von Joint-Name zu Wert erstellen
+        std::map<std::string, double> joint_map;
+        for (size_t i = 0; i < latest_joint_state_.name.size(); ++i) {
+            joint_map[latest_joint_state_.name[i]] = latest_joint_state_.position[i];
+        }
+
+        // Gelenkwinkel gezielt setzen
+        joint_map["wrist_2_joint"] += M_2_PI;
+
+        // Gewünschte Reihenfolge gemäß URDF
+        std::vector<std::string> ur_joint_order = {
+            "shoulder_pan_joint",
+            "shoulder_lift_joint",
+            "elbow_joint",
+            "wrist_1_joint",
+            "wrist_2_joint",
+            "wrist_3_joint"
+        };
+        // Zielwinkel aufbauen und loggen
+        std::vector<double> joint_positions;
+        for (const std::string& name : ur_joint_order) {
+            double rad = joint_map[name];
+            double deg = rad * 180.0 / M_PI;
+            RCLCPP_INFO(this->get_logger(), "Target Joint %s: %.4f rad (%.2f°)", name.c_str(), rad, deg);
+            joint_positions.push_back(rad);
+        }
+        // Planen & Ausführen
+        move_group_->setPlanningTime(0.5);
+        move_group_->setMaxVelocityScalingFactor(1.0);
+        move_group_->setMaxAccelerationScalingFactor(1.0);
+        move_group_->setJointValueTarget(joint_positions);
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS) {
+            RCLCPP_INFO(this->get_logger(), "Modified joint movement planned successfully, executing...");
+            move_group_->execute(plan);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Planning failed.");
         }
     }
 
 
+
     void moveToObjectPosition(double x, double y, double z) {
         RCLCPP_INFO(this->get_logger(), "Moving to object at x=%.2f y=%.2f z=%.2f", x, y, z);
-    
         // 1. Fahre zur Objektposition
         geometry_msgs::msg::Pose object_pose;
         object_pose.position.x = x;
@@ -221,6 +307,19 @@ private:
         gripper_zeroer_->publish(msg);
     }
 
+    void publishRequestJointState(bool trigger) {
+        // Warten, bis jemand den Topic abonniert hat
+        while (request_joint_state->get_subscription_count() < 1 && rclcpp::ok()) {
+            RCLCPP_WARN(this->get_logger(), "Waiting for subscriber to /request_joint_states...");
+            rclcpp::sleep_for(std::chrono::milliseconds(100));
+        }
+
+        auto msg = std_msgs::msg::Bool();
+        msg.data = trigger;
+        request_joint_state->publish(msg);
+        RCLCPP_INFO(this->get_logger(), "Published joint state request.");
+    }
+
     // Subscriber für /hand_position Topic
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr hand_position_sub_;
 
@@ -230,6 +329,12 @@ private:
     // Publisher für Gripper-Befehle
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr gripper_mover_;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr gripper_zeroer_;
+
+    // Subscriber für /joint_state_buffered
+    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_state_buffered_sub_;
+
+    // Publisher für /request_joint_states
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr request_joint_state;
 };
 
 int main(int argc, char** argv) {

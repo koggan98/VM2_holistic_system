@@ -24,8 +24,9 @@ def print_menu():
     print("  1 - Tweezers (long)")
     print("  2 - Hammer")
     print("  3 - Scissors (long)")
-    print("  4 - Scissors (short)")
-    print("  5 - Retractor (small)")
+    print("  4 - Scissors (short) (LEFT)")
+    print("  4 - Scissors (short) (RIGHT)")
+    print("  6 - Retractor (small)")
     print("=" * 40)
 
 def main():
@@ -36,9 +37,9 @@ def main():
         while rclpy.ok():
             print_menu()
             try:
-                tool_input = input("Enter tool number (0–5): ").strip()
-                if tool_input not in ['0', '1', '2', '3', '4', '5']:
-                    print("❌ Invalid input. Please enter a number between 0 and 5.")
+                tool_input = input("Enter tool number (0–6): ").strip()
+                if tool_input not in ['0', '1', '2', '3', '4', '5', "6"]:
+                    print("❌ Invalid input. Please enter a number between 0 and 6.")
                     continue
                 node.send_tool_selection(tool_input)
             except KeyboardInterrupt:
