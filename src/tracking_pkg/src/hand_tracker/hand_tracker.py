@@ -33,6 +33,9 @@ class HandPositionPublisher(Node):
         self.create_subscription(Image, 'depth_image', self.depth_callback, 10)
         self.create_subscription(CameraInfo, 'camera_info', self.camera_info_callback, 10)
 
+        # Image publisher erstellung
+        self.annotated_image_publisher = self.create_publisher(Image, 'annotated_hand_image', 10)
+
         #Für den TF erhalt
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
@@ -170,7 +173,7 @@ class HandPositionPublisher(Node):
             hand_landmarks = results.multi_hand_landmarks
 
             if hand_landmarks:
-                color_frame = self.mp_tracker.draw_landmarks(color_frame, hand_landmarks)
+                self.mp_tracker.draw_landmarks(color_frame, hand_landmarks)
 
                 for hand in hand_landmarks:
                     # Berechne die Mitte der Handfläche
@@ -205,7 +208,11 @@ class HandPositionPublisher(Node):
                         cv2.putText(color_frame, f"{z}m", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
                         
             # Zeige das annotierte RGB-Bild
-            cv2.imshow('MediaPipe Hands with Depth', color_frame)
+            # cv2.imshow('MediaPipe Hands with Depth', color_frame) # image publishen "normal"
+            ros_image = self.bridge.cv2_to_imgmsg(color_frame, encoding='bgr8')
+            ros_image.header.stamp = self.get_clock().now().to_msg()
+            ros_image.header.frame_id = "camera_frame"
+            self.annotated_image_publisher.publish(ros_image)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 

@@ -27,7 +27,7 @@ class AddSTLObject(Node):
 
         # Create pose with 90° rotation around Z-axis
         mir_pose = Pose()
-        mir_pose.position.x = -0.2
+        mir_pose.position.x = -0.18
         mir_pose.position.y = 0.0 
         mir_pose.position.z = -1.03/2 + 0.06
         

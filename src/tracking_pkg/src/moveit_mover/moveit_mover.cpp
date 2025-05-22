@@ -58,7 +58,7 @@ public:
         // Gripper öffnen (false)
         RCLCPP_INFO(this->get_logger(), "Opening gripper...");
         publishGripperMover(false);
-        moveToModifiedJoints();
+        //moveToModifiedJoints();
 
 
         //std::this_thread::sleep_for(std::chrono::seconds(1));  // Kurze Wartezeit für den Gripper
@@ -190,26 +190,26 @@ private:
     RCLCPP_INFO(this->get_logger(), "Received joint_state from Python relay.");
     }
 
-    void moveToModifiedJoints() {
-        received_joint_state_ = false;
-        publishRequestJointState(true);
-        RCLCPP_INFO(this->get_logger(), "Published joint state request.");
+    //void moveToModifiedJoints() {
+    //    received_joint_state_ = false;
+    //    publishRequestJointState(true);
+    //    RCLCPP_INFO(this->get_logger(), "Published joint state request.");
 
         // Starte eigenen Thread für Wartezeit, um Callback nicht zu blockieren
-        std::thread([this]() {
-            int retries = 0;
-            while (!received_joint_state_ && rclcpp::ok() && retries < 30) {
-                rclcpp::sleep_for(std::chrono::milliseconds(100));
-                RCLCPP_WARN(this->get_logger(), "Waiting for joint state... (%d)", retries);
-                retries++;
-            }
-            if (!received_joint_state_) {
-                RCLCPP_ERROR(this->get_logger(), "Still no joint state received.");
-                return;
-            }
-            this->planAndExecuteFromBufferedState();
-        }).detach();
-    }
+    //    std::thread([this]() {
+    //        int retries = 0;
+    //        while (!received_joint_state_ && rclcpp::ok() && retries < 30) {
+    //            rclcpp::sleep_for(std::chrono::milliseconds(100));
+    //            RCLCPP_WARN(this->get_logger(), "Waiting for joint state... (%d)", retries);
+    //            retries++;
+    //        }
+    //        if (!received_joint_state_) {
+    //            RCLCPP_ERROR(this->get_logger(), "Still no joint state received.");
+    //            return;
+    //        }
+    //        this->planAndExecuteFromBufferedState();
+    //    }).detach();
+    //}
 
     void planAndExecuteFromBufferedState() {
         // Map von Joint-Name zu Wert erstellen

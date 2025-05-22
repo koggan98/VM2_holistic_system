@@ -18,7 +18,8 @@ from tf2_ros import StaticTransformBroadcaster
 # Board-Konfiguration
 MARKER_SIZE = 0.10  # Größe eines Markers in Metern
 MARKER_SEPARATION = 0.15  # Abstand zwischen den Markern in Metern
-MARKER_OFFSET = -0.3
+MARKER_OFFSET_Y = -0.3
+MARKER_OFFSET_X = 0.05
 BOARD_ROWS = 2
 BOARD_COLS = 2
 MARKER_IDS = [100,105,110,115]
@@ -164,12 +165,10 @@ class ArucoBoard(Node):
         static_transform.header.stamp = self.get_clock().now().to_msg()
         static_transform.header.frame_id = "base"  # Basisframe des Roboters
         static_transform.child_frame_id = "aruco_board_frame"
-
         # Hard Coded Pose des ArUco-Boards relativ zur Roboterbasis
-        static_transform.transform.translation.x = 0.0
-        static_transform.transform.translation.y = MARKER_OFFSET 
+        static_transform.transform.translation.x = MARKER_OFFSET_X 
+        static_transform.transform.translation.y = MARKER_OFFSET_Y 
         static_transform.transform.translation.z = 0.0
-
         # Rotation: Identisch zur Roboterbasis (keine Rotation)
         static_transform.transform.rotation.x = 0.0
         static_transform.transform.rotation.y = 0.0

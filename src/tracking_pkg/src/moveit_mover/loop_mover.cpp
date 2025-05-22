@@ -118,7 +118,7 @@ private:
         } else if (waiting_for_hand_pose_) {
             RCLCPP_WARN(this->get_logger(), "Already waiting for hand pose – ignoring tool command.");
             return;
-        } else if (cmd == "1") { // Pinzette lang (x=0.07, y=-0.381, z=0.025),
+        } else if (cmd == "1") { // Pinzette
             tool_position_.x = 0.07;
             tool_position_.y = -0.381;
             tool_position_.z = 0.025;
@@ -126,7 +126,7 @@ private:
             tool_orientation_.y = 0.7071;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = -0.05;
+            hand_offset_.x = 0.02;
             hand_offset_.y = 0.0;
             hand_offset_.z = 0.05;
             handover_orientation_.x = -0.63;
@@ -134,7 +134,7 @@ private:
             handover_orientation_.z = -0.321;
             handover_orientation_.w = 0.321;
             grabTool(tool_position_.x, tool_position_.y, tool_position_.z);
-        } else if (cmd == "2") { // Hammer
+        } else if (cmd == "2") { // Hammer 
             tool_position_.x = 0.131;
             tool_position_.y = -0.345;
             tool_position_.z = 0.00;
@@ -142,16 +142,15 @@ private:
             tool_orientation_.y = 1;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = 0.00;
+            hand_offset_.x = -0.08;
             hand_offset_.y = 0.0;
             hand_offset_.z = 0.05;
-            handover_orientation_.x = -0.63;
-            handover_orientation_.y = 0.63;
-            handover_orientation_.z = -0.321;
-            handover_orientation_.w = 0.321;
+            handover_orientation_.x = -0.63; //0.5;
+            handover_orientation_.y = 0.63; //-0.5; // für umgekehert ohne -
+            handover_orientation_.z = -0.321; //0.5;
+            handover_orientation_.w = 0.321; //-0.5; // für umgekehert ohne -
             grabHammer(tool_position_.x, tool_position_.y, tool_position_.z);
         } else if (cmd == "3") { // Schere lang
-            // (x=0.035, y=-0.47, z=0.03)
             tool_position_.x = 0.035;
             tool_position_.y = -0.47;
             tool_position_.z = 0.03;
@@ -159,13 +158,13 @@ private:
             tool_orientation_.y = 1;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = 0.00;
+            hand_offset_.x = -0.05;
             hand_offset_.y = 0.0;
-            hand_offset_.z = 0.05;
-            handover_orientation_.x = -0.63;
-            handover_orientation_.y = 0.63;
-            handover_orientation_.z = -0.321;
-            handover_orientation_.w = 0.321;
+            hand_offset_.z = 0.02;
+            handover_orientation_.x = 0.5;
+            handover_orientation_.y = -0.5; // für umgekehert ohne -
+            handover_orientation_.z = 0.5;
+            handover_orientation_.w = -0.5; // für umgekehert ohne -
             grabLongScissor(tool_position_.x, tool_position_.y, tool_position_.z);
         } else if (cmd == "4") { // Schere kurz linke Hand
             tool_position_.x = -0.03;
@@ -175,8 +174,8 @@ private:
             tool_orientation_.y = 0.7071;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = 0.00;
-            hand_offset_.y = 0.0;
+            hand_offset_.x = 0.0;
+            hand_offset_.y = 0.05;
             hand_offset_.z = 0.05;
             handover_orientation_.x = 0.0;
             handover_orientation_.y = 0.891;
@@ -191,8 +190,8 @@ private:
             tool_orientation_.y = 0.7071;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = 0.00;
-            hand_offset_.y = 0.0;
+            hand_offset_.x = 0.0;
+            hand_offset_.y = -0.05;
             hand_offset_.z = 0.05;
             handover_orientation_.x = 0.0;
             handover_orientation_.y = 0.891;
@@ -200,7 +199,6 @@ private:
             handover_orientation_.w = 0.454;
             grabTool(tool_position_.x, tool_position_.y, tool_position_.z);
         } else if (cmd == "6") { // Haken klein
-            // (x=0.1265, y=-0.39, z=0.015) danach hoch auf 0.15
             tool_position_.x = 0.1265;
             tool_position_.y = -0.39;
             tool_position_.z = 0.015;
@@ -208,9 +206,9 @@ private:
             tool_orientation_.y = 0;
             tool_orientation_.z = 0;
             tool_orientation_.w = 0;
-            hand_offset_.x = 0.00;
+            hand_offset_.x = -0.07;
             hand_offset_.y = 0.0;
-            hand_offset_.z = 0.05;
+            hand_offset_.z = 0.07;
             handover_orientation_.x = -0.63;
             handover_orientation_.y = 0.63;
             handover_orientation_.z = -0.321;
@@ -241,12 +239,12 @@ private:
             move_group_->execute(plan);
             waiting_for_hand_pose_ = false;
             // Öffne den Greifer über /gripper_zeroer
-            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             RCLCPP_INFO(this->get_logger(), "Activating gripper sensing...");
             publishGripperZeroer(true);
             waiting_for_gripper_done_ = true;
             hand_pose_received_ = true;
-            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            std::this_thread::sleep_for(std::chrono::milliseconds(1500));
         } else {
             RCLCPP_ERROR(this->get_logger(), "Planning to above hand failed.");
             return;
